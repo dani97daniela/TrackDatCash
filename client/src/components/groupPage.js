@@ -72,6 +72,7 @@ class TodosList extends Component {
 	
 	mountUserCodeExpenses(){
 		console.log("In mounting function");
+		console.log("Finding group code: " + this.state.groupCode);
 		
 		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
