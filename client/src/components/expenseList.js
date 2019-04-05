@@ -19,6 +19,7 @@ const Expense = props => (
     <tr>
         <td>{props.item.description}</td>
         <td>{props.item.amount}</td>
+		<td>{props.item.category}</td>
         <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
@@ -99,6 +100,9 @@ class TodosList extends Component {
 						  <Link to="/create" className="nav-link">Create Expense</Link>
 						</li>
 						<li className="navbar-item">
+						  <Link to="/categories" className="nav-link">Categories</Link>
+						</li>
+						<li className="navbar-item">
 						  <Link to="/monthly" className="nav-link">Monthly</Link>
 						</li>
 						<li className="navbar-item">
@@ -133,6 +137,9 @@ class TodosList extends Component {
                             <th data-field="amount" 
 								onClick={() => {this.onChangeSort('amount')}
 								}>Amount</th>
+							<th data-field="category" 
+								onClick={() => {this.onChangeSort('category')}
+								}>Category</th>
                             <th data-field="month" 
 								onClick={() => {this.onChangeSort('month')}
 								}>Month</th>

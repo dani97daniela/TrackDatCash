@@ -53,29 +53,45 @@ require("./config/passport")(passport);
 // -----ROUTES-----
 
 // For mobile testing
-expenseRoutes.post('/all', (req, res, next) => {
+expenseRoutes.post("/all", (req, res, next) => {
   const userId = req.body.userId;
-  Expense.find({userId: userId})
-  .select("_id description amount month day year")
-  .exec()
-  .then(docs => {
-	res.status(200).json(
-		docs.map(doc => {
-			return {
-				description: doc.description,
-				amount: doc.amount,
-				month: doc.month,
-				day: doc.day,
-				year: doc.year
-			}
-		})
-	);
-  })
-  .catch(err => {
-	console.log(err);
-	res.status(500).json({
-  	  error: err
-	})
+  Expense.find({userId: userId}, function(err, expenses) {
+	
+	if (err) {
+		console.log(err);
+	} else {
+		res.json(expenses);
+	}
+  });
+});
+// For mobile testing
+expenseRoutes.post("/monthMobile/:newMonth", (req, res, next) => {
+  const userId = req.body.userId;
+  const month = req.params.newMonth;
+  console.log(month);
+  Expense.find({userId: userId, month: month}, function(err, expenses) {
+    console.log(expenses);
+    if (err) {
+        console.log(err);
+    } else {
+        res.json(expenses);
+    }
+  });
+});
+
+// Mobile categories
+// Route to return all expenses for a specific category
+expenseRoutes.post("/categoryMobile/:newCategory", (req, res, next) => {
+  const userId = req.body.userId;
+  const category = req.params.newCategory;
+  console.log(category);
+  Expense.find({userId: userId, category: category}, function(err, expenses) {
+    console.log(expenses);
+    if (err) {
+        console.log(err);
+    } else {
+        res.json(expenses);
+    }
   });
 });
 // For mobile testing
@@ -179,6 +195,8 @@ expenseRoutes.route('/').get(function(req, res) {
     });
 });
  */
+ 
+ 
 // Route to return ALL expenses in the database for a specific user.
 expenseRoutes.route("/getAllExpenses").post(function(req, res) {
   const usersId = req.body.id.toString();
@@ -191,11 +209,24 @@ expenseRoutes.route("/getAllExpenses").post(function(req, res) {
   });
 });
 
+// Route to return all expenses for a specific category
+expenseRoutes.post("/category/:newCategory", (req, res, next) => {
+  const usersId = req.body.id.toString();
+  const category = req.params.newCategory;
+  Expense.find({userId: usersId, category: category}, function(err, expenses) {
+	console.log(expenses);
+	if (err) {
+		console.log(err);
+	} else {
+		res.json(expenses);
+	}
+  });
+});
+
 // Route to return all expenses for a specific month
 expenseRoutes.route("/month/:newMonth").post(function(req, res) {
   const usersId = req.body.id.toString();
   const month = req.params.newMonth;
-  console.log(month);
   Expense.find({userId: usersId, month: month}, function(err, expenses) {
 	console.log(expenses);
 	if (err) {

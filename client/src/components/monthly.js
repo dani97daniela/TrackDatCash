@@ -18,6 +18,7 @@ const Expense = props => (
     <tr>
         <td>{props.item.description}</td>
         <td>{props.item.amount}</td>
+		<td>{props.item.category}</td>
         <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
@@ -68,7 +69,6 @@ class TodosList extends Component {
 	
 	onChangeMonth(month) {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-		console.log(month);
         axios.post('expenses/month/'+month, {
 			id: idOfUser
 		})
@@ -91,9 +91,9 @@ class TodosList extends Component {
 		temp = sortBy(temp, sortItem);
 		sum = sumBy(temp, 'amount');
 		this.setState({ 
-					expensesArray: temp,
-					total: sum
-				});
+				expensesArray: temp,
+				total: sum
+			});
     }
 
     listOfExpenses() {
@@ -116,6 +116,9 @@ class TodosList extends Component {
 						</li>
 						<li className="navbar-item">
 						  <Link to="/create" className="nav-link">Create Expense</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/categories" className="nav-link">Categories</Link>
 						</li>
 						<li className="navbar-item">
 						  <Link to="/monthly" className="nav-link">Monthly</Link>
@@ -172,6 +175,9 @@ class TodosList extends Component {
                             <th data-field="amount" 
 								onClick={() => {this.onChangeSort('amount')}
 								}>Amount</th>
+							<th data-field="category" 
+								onClick={() => {this.onChangeSort('category')}
+								}>Category</th>
                             <th data-field="month" 
 								onClick={() => {this.onChangeSort('month')}
 								}>Month</th>
