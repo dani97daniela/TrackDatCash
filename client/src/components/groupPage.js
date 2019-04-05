@@ -58,6 +58,7 @@ class TodosList extends Component {
 			})
             .then(response => {
 				tempCode = response.data.groupCode;
+				console.log(tempCode);
                 this.setState({ 
 					userCode: tempCode,
 					groupCode: tempCode
@@ -72,7 +73,7 @@ class TodosList extends Component {
 	
 	mountUserCodeExpenses(){
 		console.log("In mounting function");
-		console.log("Finding group code: " + tempCode);
+		console.log(tempCode);
 		
 		axios.post('expenses/code/'+tempCode)
             .then(response => {
