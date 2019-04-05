@@ -230,6 +230,7 @@ export default class CreateExpense extends Component {
 						options={optionsCategory}
 						onChange={this.onChangeCategory}
 					  />
+					</div>
 					<div className="form-group">
 					  <label>Month: </label>
 					  <Select
