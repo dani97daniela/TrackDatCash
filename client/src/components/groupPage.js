@@ -58,7 +58,7 @@ class TodosList extends Component {
             .then(response => {
 				console.log(response);
 				console.log(response.data);
-				tempCode = response.data.body.groupCode;
+				tempCode = response.data.groupCode;
                 this.setState({ 
 					userCode: tempCode,
 					groupCode: tempCode
