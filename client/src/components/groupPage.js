@@ -66,8 +66,9 @@ class TodosList extends Component {
                 console.log(error);
             })
 		
-		/* axios.post('expenses/code/'+this.state.groupCode)
+		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
+				console.log("Getting expenses with groupcode " + this.state.groupCode);
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
@@ -78,7 +79,7 @@ class TodosList extends Component {
             })
             .catch(function (error){
                 console.log(error);
-            }) */
+            })
     }
 	
 	onChangeSort(sortItem) {
