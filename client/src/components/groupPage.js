@@ -33,7 +33,7 @@ class TodosList extends Component {
     constructor(props) {
         super(props);
 		
-		this.mountUserCodeExpenses = this.mountUserCodeExpenses.bind(this);
+		this.mountOne = this.mountOne.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
 		this.onChangeGroupCode = this.onChangeGroupCode.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -52,39 +52,33 @@ class TodosList extends Component {
 	};
 	
 	componentDidMount() {
+		this.mountOne();
+    }
+	
+	mountOne(){
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
         axios.post('/expenses/codeMount', {
 			id: idOfUser
 			})
             .then(response => {
 				tempCode = response.data.groupCode;
-				console.log(tempCode);
+				console.log("One: " + tempCode);
                 this.setState({ 
 					userCode: tempCode,
 					groupCode: tempCode
 				});
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-		
-		this.mountUserCodeExpenses();
-    }
-	
-	mountUserCodeExpenses(){
-		console.log("In mounting function");
-		console.log(tempCode);
-		
-		axios.post('expenses/code/'+tempCode)
-            .then(response => {
-				console.log("Getting expenses with groupcode " + tempCode);
-				temp = response.data;
-				temp = sortBy(temp, ['description', 'amount']);
-				sum = sumBy(temp, 'amount');
-                this.setState({ 
-					expensesArray: temp,
-					total: sum
-				});
+				
+				axios.post('expenses/code/'+tempCode)
+					.then(res => {
+						console.log("Getting expenses with groupcode " + tempCode);
+						temp = res.data;
+						temp = sortBy(temp, ['description', 'amount']);
+						sum = sumBy(temp, 'amount');
+						this.setState({ 
+							expensesArray: temp,
+							total: sum
+						});
+					})
             })
             .catch(function (error){
                 console.log(error);
