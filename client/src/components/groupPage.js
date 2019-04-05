@@ -169,7 +169,7 @@ class TodosList extends Component {
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
 					<input  type="text"
-					placeholder=this.state.userCode
+					placeholder={this.state.userCode}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeGroupCode}
