@@ -125,7 +125,6 @@ class TodosList extends Component {
     }
 
     render() {
-		this.state.userCode;
 		const textCode = "Your group code: " + this.state.userCode;
 		
         return (
