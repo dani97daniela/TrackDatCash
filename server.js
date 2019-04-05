@@ -211,7 +211,7 @@ expenseRoutes.post("/codeMount", (req, res, next) => {
   const usersId = req.body.id.toString();
   User.findOne({ _id: usersId }).then(user => {
 	if (user) {
-	  return res.json({user});
+	  return res.json(user);
     } else {
 		console.log("Error");
 	}
