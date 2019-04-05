@@ -65,7 +65,7 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-		console.log(userCode);
+		console.log(this.state.userCode);
 		
 		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
