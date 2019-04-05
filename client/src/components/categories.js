@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
-import logo from "../group.jpg";
+import logo from "../krabs.gif";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -12,7 +12,6 @@ import { logoutUser } from "../actions/authActions";
 import jwt_decode from "jwt-decode";
 
 var temp = [];
-var tempCode = '';
 var sum = 0;
 
 const Expense = props => (
@@ -23,6 +22,7 @@ const Expense = props => (
         <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
+		<td>{props.item.groupCode}</td>
         <td>
             <Link to={"/edit/"+props.item._id}>Edit</Link>
         </td>
@@ -34,15 +34,12 @@ class TodosList extends Component {
     constructor(props) {
         super(props);
 		
+		this.onChangeCategory = this.onChangeCategory.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
-		this.onChangeGroupCode = this.onChangeGroupCode.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
 		
         this.state = {
 			expensesArray: [],
-			total: 0,
-			userCode: ' ',
-			groupCode: ' '
+			total: 0
 		};
     }
 	
@@ -51,55 +48,11 @@ class TodosList extends Component {
 		this.props.logoutUser();
 	};
 	
-	componentDidMount() {
+	componentDidMount() {		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.post('/expenses/codeMount', {
+        axios.post('/expenses/category/Food', {
 			id: idOfUser
-			})
-            .then(response => {
-				tempCode = response.data.groupCode;
-                this.setState({ 
-					userCode: tempCode,
-					groupCode: tempCode
-				});
-				
-				axios.post('expenses/code/'+tempCode)
-					.then(res => {
-						temp = res.data;
-						temp = sortBy(temp, ['description', 'amount']);
-						sum = sumBy(temp, 'amount');
-						this.setState({ 
-							expensesArray: temp,
-							total: sum
-						});
-					})
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-    }
-	
-	onChangeSort(sortItem) {
-		temp = this.state.expensesArray;
-		temp = sortBy(temp, sortItem);
-		sum = sumBy(temp, 'amount');
-		this.setState({ 
-					expensesArray: temp,
-					total: sum
-				});
-    }
-	
-	onChangeGroupCode(e) {
-		this.setState({
-            groupCode: e.target.value
-        });
-        
-    }
-	
-	onSubmit(e) {
-        e.preventDefault();
-		
-		axios.post('expenses/code/'+this.state.groupCode)
+		})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -111,9 +64,37 @@ class TodosList extends Component {
             })
             .catch(function (error){
                 console.log(error);
-            })	
+            })
     }
 	
+	onChangeCategory(category) {
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+        axios.post('expenses/category/'+category, {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				temp = sortBy(temp, ['description', 'amount']);
+				sum = sumBy(temp, 'amount');
+                this.setState({ 
+					expensesArray: temp,
+					total: sum
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+    }
+	
+	onChangeSort(sortItem) {
+		temp = this.state.expensesArray;
+		temp = sortBy(temp, sortItem);
+		sum = sumBy(temp, 'amount');
+		this.setState({ 
+				expensesArray: temp,
+				total: sum
+			});
+    }
 
     listOfExpenses() {
         return this.state.expensesArray.map(function(currentExpense, i){
@@ -121,10 +102,10 @@ class TodosList extends Component {
         })
     }
 
-    render() {		
+    render() {
         return (
             <div>
-              <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
+              <h3><center><img src={logo} width="150" height="75" alt=""/>	Monthly Lists	<img src={logo} width="150" height="75" alt="" /></center></h3>
 			  
 			  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<img src={logo} width="100" height="100" alt=""/>
@@ -161,21 +142,20 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-			  <div>{"Your group code is: " + this.state.userCode}</div>
-			  
-			  <form onSubmit={this.onSubmit}>
-				<label>GroupCode:
-					<input  type="text"
-					placeholder={this.state.userCode}
-						className="form-control"
-						value={this.state.cat}
-						onChange={this.onChangeGroupCode}
-						/>
-				</label>
-				<input type="submit" value="Update" className="btn btn-info" />
-			  </form>
-			  
+				
 			  <h5>Total: ${this.state.total} </h5>
+				<div className="container">
+				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
+					<div className="collpase navbar-collapse">
+					  <ul className="navbar-nav mr-auto">
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Food')}}>Food</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Bills')}}>Bills</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Entertainment')}}>Entertainment</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Other')}}>Other/Misc.</button>
+					  </ul>
+					</div>
+				  </nav>
+				</div>
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 30 }} >
 				  
@@ -199,6 +179,9 @@ class TodosList extends Component {
                             <th data-field="year" 
 								onClick={() => {this.onChangeSort('year')}
 								}>Year</th>
+							<th data-field="groupCode" 
+								onClick={() => {this.onChangeSort('groupCode')}
+								}>Group</th>
                             <th>Action</th>
                         </tr>
                     </thead>

@@ -14,6 +14,13 @@ import jwt_decode from "jwt-decode";
 
 import logo from "../giphy.gif";
 
+const optionsCategory = [
+  { value: 'Food', label: 'Food' },
+  { value: 'Bills', label: 'Bills' },
+  { value: 'Entertainment', label: 'Entertainment' },
+  { value: 'Other', label: 'Other/Misc.' }
+];
+
 const optionsMonth = [
   { value: 'Jan', label: 'Jan' },
   { value: 'Feb', label: 'Feb' },
@@ -71,6 +78,7 @@ export default class CreateExpense extends Component {
 
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeAmount = this.onChangeAmount.bind(this);
+		this.onChangeCategory = this.onChangeCategory.bind(this);
 		this.onChangeMonth = this.onChangeMonth.bind(this);
 		this.onChangeDay = this.onChangeDay.bind(this);
 		this.onChangeYear = this.onChangeYear.bind(this);
@@ -80,6 +88,7 @@ export default class CreateExpense extends Component {
         this.state = {
             description: '',
             amount: '',
+            category: '',
             selectedMonth: '',
             selectedDay: '',
             year: '',
@@ -96,6 +105,12 @@ export default class CreateExpense extends Component {
     onChangeAmount(e) {
         this.setState({
             amount: e.target.value
+        });
+    }
+	
+	onChangeCategory(selectedCategory) {
+        this.setState({
+            category: selectedCategory.value
         });
     }
 	
@@ -125,14 +140,6 @@ export default class CreateExpense extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        
-        console.log(`Form submitted:`);
-        console.log(`Description: ${this.state.description}`);
-        console.log(`Amount: ${this.state.amount}`);
-		console.log(`Month: ${this.state.month}`);
-		console.log(`Day: ${this.state.day}`);
-		console.log(`Year: ${this.state.year}`);
-		console.log(`Code: ${this.state.groupCode}`);
 		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
      
@@ -140,6 +147,7 @@ export default class CreateExpense extends Component {
 			userId: idOfUser,
             description: this.state.description,
             amount: this.state.amount,
+			category: this.state.category,
             month: this.state.month,
             day: this.state.day,
             year: this.state.year,
@@ -152,6 +160,7 @@ export default class CreateExpense extends Component {
 		this.setState = {
             description: '',
             amount: '',
+			category: '',
             month: '',
             day: '',
             year: '',
@@ -162,6 +171,7 @@ export default class CreateExpense extends Component {
     }
 
     render() {
+		const { selectedCategory } = this.state;
 		const { selectedMonth } = this.state;
 		const { selectedDay } = this.state;
 		
@@ -178,6 +188,9 @@ export default class CreateExpense extends Component {
 						</li>
 						<li className="navbar-item">
 						  <Link to="/create" className="nav-link">Create Expense</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/categories" className="nav-link">Categories</Link>
 						</li>
 						<li className="navbar-item">
 						  <Link to="/monthly" className="nav-link">Monthly</Link>
@@ -208,6 +221,16 @@ export default class CreateExpense extends Component {
 							onChange={this.onChangeAmount}
 							/>
                     </div>
+					<div className="form-group">
+					  <label>Category: </label>
+					  <Select
+						name="Category"
+						placeholder={this.state.category}
+						value={selectedCategory}
+						options={optionsCategory}
+						onChange={this.onChangeCategory}
+					  />
+					</div>
 					<div className="form-group">
 					  <label>Month: </label>
 					  <Select

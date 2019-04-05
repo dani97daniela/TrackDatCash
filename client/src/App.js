@@ -12,6 +12,7 @@ import CreateUser from "./components/createUser";
 import ExpensesList from "./components/expenseList";
 import CreateExpense from "./components/createExpense";
 import EditExpense from "./components/editExpense";
+import Categories from "./components/categories";
 import Monthly from "./components/monthly";
 import Group from "./components/groupPage";
 
@@ -60,6 +61,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={ExpensesList} />
 			  <PrivateRoute exact path="/create" component={CreateExpense} />
 			  <PrivateRoute exact path="/edit/:id" component={EditExpense} />
+			  <PrivateRoute exact path="/categories" component={Categories} />
 			  <PrivateRoute exact path="/monthly" component={Monthly} />
 			  <PrivateRoute exact path="/group" component={Group} />
             </Switch>
