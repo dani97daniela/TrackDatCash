@@ -56,7 +56,7 @@ class TodosList extends Component {
 			id: idOfUser
 			})
             .then(response => {
-				tempCode = response.body.groupCode;
+				tempCode = response.data.body.groupCode;
                 this.setState({ 
 					userCode: tempCode,
 					groupCode: tempCode

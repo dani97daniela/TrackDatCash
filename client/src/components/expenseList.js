@@ -47,9 +47,7 @@ class TodosList extends Component {
 	};
 
     componentDidMount() {
-		console.log("Attempting getAllExpenses POST");
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-		console.log("idOfUser: " + idOfUser);
 		
         axios.post('/expenses/getAllExpenses', {
 			id: idOfUser
