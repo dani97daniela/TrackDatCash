@@ -12,6 +12,7 @@ import { logoutUser } from "../actions/authActions";
 import jwt_decode from "jwt-decode";
 
 var temp = [];
+var tempCode = '';
 var sum = 0;
 
 const Expense = props => (
@@ -55,15 +56,17 @@ class TodosList extends Component {
 			id: idOfUser
 			})
             .then(response => {
+				tempCode = response.data;
                 this.setState({ 
-					userCode: response.data,
-					groupCode: response.data
+					userCode: tempCode,
+					groupCode: tempCode
 				});
             })
             .catch(function (error){
                 console.log(error);
             })
-			
+		console.log(userCode);
+		
 		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				temp = response.data;
@@ -122,7 +125,9 @@ class TodosList extends Component {
     }
 
     render() {
-		var textCode = "Your group code: " + this.state.userCode;
+		this.state.userCode;
+		const textCode = "Your group code: " + this.state.userCode;
+		
         return (
             <div>
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
