@@ -88,8 +88,8 @@ expenseRoutes.route('/').get(function(req, res) {
     });
 });
 
-// Login route
-expenseRoutes.post("/loginUser", (req, res, next) => {
+// OLD Login route
+/* expenseRoutes.post("/loginUser", (req, res, next) => {
   User.find({username: req.body.username}).exec().then(user => {
     if (user.length < 1) {
       return res.status(401).json({
@@ -133,8 +133,8 @@ expenseRoutes.post("/loginUser", (req, res, next) => {
   });
 });
 
-// Add new user
-expenseRoutes.post("/createUser", (req, res, next) => {
+ */// OLD Add new user
+/* expenseRoutes.post("/createUser", (req, res, next) => {
   User.find({ username: req.body.username })
     .exec()
     .then(user => {
@@ -177,10 +177,10 @@ expenseRoutes.post("/createUser", (req, res, next) => {
       }
     });
 });
-
+ */
 // Route to return ALL expenses in the database for a specific user.
 expenseRoutes.route("/getAllExpenses").post(function(req, res) {
-	const usersId = req.body.id.toString();
+  const usersId = req.body.id.toString();
   Expense.find({userId: usersId}, function(err, expenses) {
 	if (err) {
 		console.log(err);
@@ -205,8 +205,20 @@ expenseRoutes.route("/month/:newMonth").post(function(req, res) {
   });
 });
 
+// Mounting route for group code page
+expenseRoutes.post("/codeMount", (req, res, next) => {
+  const usersId = "5ca44109df51880017882b88";
+  User.findOne({ _id: usersId }).then(user => {
+	if (user) {
+      return res.status(400).json( user.groupCode );
+    } else {
+		console.log("Error");
+	}
+  });
+});
+
 // Route to return all expenses with a specific group code
-expenseRoutes.get("/code/:thisCode", (req, res, next) => {
+expenseRoutes.post("/code/:thisCode", (req, res, next) => {
   const groupCode = req.params.thisCode;
   console.log(groupCode);
   Expense.find({groupCode: groupCode}, function(err, expenses) {

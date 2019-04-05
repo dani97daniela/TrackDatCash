@@ -48,8 +48,11 @@ class TodosList extends Component {
 		this.props.logoutUser();
 	};
 	
-	componentDidMount() {		
-        axios.get('/expenses/code/8675309')
+	componentDidMount() {
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+        axios.get('/expenses/codeMount', {
+			id: idOfUser
+		})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);

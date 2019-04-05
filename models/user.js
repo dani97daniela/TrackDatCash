@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const shortid = require('shortid');
 
 // Create Schema
 const UserSchema = new Schema({
@@ -15,6 +16,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  groupCode: shortid.generate,
   date: {
     type: Date,
     default: Date.now
