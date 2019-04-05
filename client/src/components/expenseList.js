@@ -48,9 +48,7 @@ class TodosList extends Component {
 	};
 
     componentDidMount() {
-		console.log("Attempting getAllExpenses POST");
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-		console.log("idOfUser: " + idOfUser);
 		
         axios.post('/expenses/getAllExpenses', {
 			id: idOfUser
@@ -144,7 +142,7 @@ class TodosList extends Component {
                             <th data-field="year" 
 								onClick={() => {this.onChangeSort('year')}
 								}>Year</th>
-							<th data-field="year" 
+							<th data-field="groupCode" 
 								onClick={() => {this.onChangeSort('groupCode')}
 								}>Group</th>
                             <th>Action</th>
