@@ -72,11 +72,11 @@ class TodosList extends Component {
 	
 	mountUserCodeExpenses(){
 		console.log("In mounting function");
-		console.log("Finding group code: " + this.state.groupCode);
+		console.log("Finding group code: " + tempCode);
 		
-		axios.post('expenses/code/'+this.state.groupCode)
+		axios.post('expenses/code/'+tempCode)
             .then(response => {
-				console.log("Getting expenses with groupcode " + this.state.groupCode);
+				console.log("Getting expenses with groupcode " + tempCode);
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
