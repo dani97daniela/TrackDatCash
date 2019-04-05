@@ -158,7 +158,7 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-			  <h3><center> Your group code: {this.state.userCode}</center></h3>
+			  <div>{this.state.userCode}</div>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
