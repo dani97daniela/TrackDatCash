@@ -56,7 +56,7 @@ class TodosList extends Component {
 			id: idOfUser
 			})
             .then(response => {
-				tempCode = response.data;
+				tempCode = response.body.groupCode;
                 this.setState({ 
 					userCode: tempCode,
 					groupCode: tempCode
@@ -65,9 +65,9 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-		console.log(this.state.userCode);
+		console.log("userCode: " + this.state.userCode);
 		
-		axios.post('expenses/code/'+this.state.groupCode)
+		/* axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -79,7 +79,7 @@ class TodosList extends Component {
             })
             .catch(function (error){
                 console.log(error);
-            })
+            }) */
     }
 	
 	onChangeSort(sortItem) {
