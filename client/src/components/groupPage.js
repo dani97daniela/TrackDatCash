@@ -67,7 +67,7 @@ class TodosList extends Component {
                 console.log(error);
             })
 		
-		mountUserCodeExpenses();
+		this.mountUserCodeExpenses();
     }
 	
 	mountUserCodeExpenses(){
