@@ -56,8 +56,6 @@ class TodosList extends Component {
 			id: idOfUser
 			})
             .then(response => {
-				console.log(response);
-				console.log(response.data);
 				tempCode = response.data.groupCode;
                 this.setState({ 
 					userCode: tempCode,
@@ -67,7 +65,6 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-		console.log("userCode: " + this.state.userCode);
 		
 		/* axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
@@ -126,9 +123,7 @@ class TodosList extends Component {
         })
     }
 
-    render() {
-		const textCode = "Your group code: " + this.state.userCode;
-		
+    render() {		
         return (
             <div>
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
@@ -165,8 +160,7 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-			  <div>{textCode}</div>
-			  <div>{"Your group code is: "}</div>
+			  <div>{"Your group code is: " + this.state.userCode}</div>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
