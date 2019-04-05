@@ -12,6 +12,7 @@ import { logoutUser } from "../actions/authActions";
 import jwt_decode from "jwt-decode";
 
 var temp = [];
+var tempCode = '';
 var sum = 0;
 
 const Expense = props => (
@@ -32,6 +33,7 @@ class TodosList extends Component {
     constructor(props) {
         super(props);
 		
+		this.mountOne = this.mountOne.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
 		this.onChangeGroupCode = this.onChangeGroupCode.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -39,6 +41,7 @@ class TodosList extends Component {
         this.state = {
 			expensesArray: [],
 			total: 0,
+			userCode: ' ',
 			groupCode: ' '
 		};
     }
@@ -48,21 +51,39 @@ class TodosList extends Component {
 		this.props.logoutUser();
 	};
 	
-	componentDidMount() {		
-        axios.get('/expenses/code/8675309')
+	componentDidMount() {
+		this.mountOne();
+    }
+	
+	mountOne(){
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+        axios.post('/expenses/codeMount', {
+			id: idOfUser
+			})
             .then(response => {
-				temp = response.data;
-				temp = sortBy(temp, ['description', 'amount']);
-				sum = sumBy(temp, 'amount');
+				tempCode = response.data.groupCode;
+				console.log("One: " + tempCode);
                 this.setState({ 
-					expensesArray: temp,
-					total: sum
+					userCode: tempCode,
+					groupCode: tempCode
 				});
+				
+				axios.post('expenses/code/'+tempCode)
+					.then(res => {
+						console.log("Getting expenses with groupcode " + tempCode);
+						temp = res.data;
+						temp = sortBy(temp, ['description', 'amount']);
+						sum = sumBy(temp, 'amount');
+						this.setState({ 
+							expensesArray: temp,
+							total: sum
+						});
+					})
             })
             .catch(function (error){
                 console.log(error);
             })
-    }
+	}
 	
 	onChangeSort(sortItem) {
 		temp = this.state.expensesArray;
@@ -84,7 +105,7 @@ class TodosList extends Component {
 	onSubmit(e) {
         e.preventDefault();
 		
-		axios.get('expenses/code/'+this.state.groupCode)
+		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -96,9 +117,7 @@ class TodosList extends Component {
             })
             .catch(function (error){
                 console.log(error);
-            })
-			
-        alert('Returning expense with code: ' + this.state.groupCode);
+            })	
     }
 	
 
@@ -108,7 +127,7 @@ class TodosList extends Component {
         })
     }
 
-    render() {
+    render() {		
         return (
             <div>
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
@@ -145,10 +164,12 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-				
+			  <div>{"Your group code is: " + this.state.userCode}</div>
+			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
 					<input  type="text"
+					placeholder={this.state.userCode}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeGroupCode}

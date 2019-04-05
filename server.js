@@ -8,6 +8,7 @@ const dotenv = require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const keys = require("./config/keys");
+const shortid = require('shortid');
 //const passport = require("passport");
 
 // Load input validation
@@ -88,8 +89,8 @@ expenseRoutes.route('/').get(function(req, res) {
     });
 });
 
-// Login route
-expenseRoutes.post("/loginUser", (req, res, next) => {
+// OLD Login route
+/* expenseRoutes.post("/loginUser", (req, res, next) => {
   User.find({username: req.body.username}).exec().then(user => {
     if (user.length < 1) {
       return res.status(401).json({
@@ -133,8 +134,8 @@ expenseRoutes.post("/loginUser", (req, res, next) => {
   });
 });
 
-// Add new user
-expenseRoutes.post("/createUser", (req, res, next) => {
+ */// OLD Add new user
+/* expenseRoutes.post("/createUser", (req, res, next) => {
   User.find({ username: req.body.username })
     .exec()
     .then(user => {
@@ -177,10 +178,10 @@ expenseRoutes.post("/createUser", (req, res, next) => {
       }
     });
 });
-
+ */
 // Route to return ALL expenses in the database for a specific user.
 expenseRoutes.route("/getAllExpenses").post(function(req, res) {
-	const usersId = req.body.id.toString();
+  const usersId = req.body.id.toString();
   Expense.find({userId: usersId}, function(err, expenses) {
 	if (err) {
 		console.log(err);
@@ -205,8 +206,20 @@ expenseRoutes.route("/month/:newMonth").post(function(req, res) {
   });
 });
 
+// Mounting route for group code page
+expenseRoutes.post("/codeMount", (req, res, next) => {
+  const usersId = req.body.id.toString();
+  User.findOne({ _id: usersId }).then(user => {
+	if (user) {
+	  return res.json(user);
+    } else {
+		console.log("Error");
+	}
+  });
+});
+
 // Route to return all expenses with a specific group code
-expenseRoutes.get("/code/:thisCode", (req, res, next) => {
+expenseRoutes.post("/code/:thisCode", (req, res, next) => {
   const groupCode = req.params.thisCode;
   console.log(groupCode);
   Expense.find({groupCode: groupCode}, function(err, expenses) {
@@ -293,6 +306,7 @@ expenseRoutes.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
+        groupCode: shortid.generate(),
         password: req.body.password
       });
 
