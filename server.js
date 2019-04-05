@@ -8,6 +8,7 @@ const dotenv = require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const keys = require("./config/keys");
+const shortid = require('shortid');
 //const passport = require("passport");
 
 // Load input validation
@@ -207,7 +208,7 @@ expenseRoutes.route("/month/:newMonth").post(function(req, res) {
 
 // Mounting route for group code page
 expenseRoutes.post("/codeMount", (req, res, next) => {
-  const usersId = "5ca44109df51880017882b88";
+  const usersId = req.body.id.toString();
   User.findOne({ _id: usersId }).then(user => {
 	if (user) {
       return res.status(400).json( user.groupCode );
@@ -305,6 +306,7 @@ expenseRoutes.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
+        groupCode: shortid.generate(),
         password: req.body.password
       });
 

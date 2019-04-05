@@ -39,6 +39,7 @@ class TodosList extends Component {
         this.state = {
 			expensesArray: [],
 			total: 0,
+			userCode: ' ',
 			groupCode: ' '
 		};
     }
@@ -50,9 +51,20 @@ class TodosList extends Component {
 	
 	componentDidMount() {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.get('/expenses/codeMount', {
+        axios.post('/expenses/codeMount', {
 			id: idOfUser
-		})
+			})
+            .then(response => {
+                this.setState({ 
+					userCode: response.data,
+					groupCode: response.data
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -87,7 +99,7 @@ class TodosList extends Component {
 	onSubmit(e) {
         e.preventDefault();
 		
-		axios.get('expenses/code/'+this.state.groupCode)
+		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -99,9 +111,7 @@ class TodosList extends Component {
             })
             .catch(function (error){
                 console.log(error);
-            })
-			
-        alert('Returning expense with code: ' + this.state.groupCode);
+            })	
     }
 	
 
@@ -148,7 +158,8 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-				
+			  <h3><center> Your group code: {this.state.userCode}</center></h3>
+			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
 					<input  type="text"
