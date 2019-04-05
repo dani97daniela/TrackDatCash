@@ -122,6 +122,7 @@ class TodosList extends Component {
     }
 
     render() {
+		var textCode = "Your group code: " + this.state.userCode;
         return (
             <div>
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
@@ -158,7 +159,8 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-			  <div>{this.state.userCode}</div>
+			  <div>{textCode}</div>
+			  <div>{"Your group code is: "}</div>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:
