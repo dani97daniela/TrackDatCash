@@ -66,6 +66,12 @@ class TodosList extends Component {
                 console.log(error);
             })
 		
+		mountUserCodeExpenses();
+    }
+	
+	mountUserCodeExpenses(){
+		console.log("In mounting function");
+		
 		axios.post('expenses/code/'+this.state.groupCode)
             .then(response => {
 				console.log("Getting expenses with groupcode " + this.state.groupCode);
@@ -80,7 +86,7 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-    }
+	}
 	
 	onChangeSort(sortItem) {
 		temp = this.state.expensesArray;
