@@ -66,6 +66,7 @@ class App extends Component {
 			  <PrivateRoute exact path="/group" component={Group} />
             </Switch>
           </div>
+		  
         </Router>
       </Provider>
     );
