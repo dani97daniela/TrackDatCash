@@ -113,9 +113,10 @@ export default class LoginUser extends Component {
 
     render() {		
         return (
-            
+            <div className= "App">
+				<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
 			<div style={{marginTop: 10}}>
-                <h3>Login New User</h3>
+                <h3>Please Login </h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
                         <label>First name: </label>
@@ -174,6 +175,7 @@ export default class LoginUser extends Component {
                     </div>
                 </form>
             </div>
+		</div>
         )
     }
 }
