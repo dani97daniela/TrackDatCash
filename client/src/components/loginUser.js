@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import './App.css';
+import logo2 from "./o-logo.png";
+import logo from "./money_sign.png";
 
 export default class LoginUser extends Component {
 
@@ -110,7 +113,8 @@ export default class LoginUser extends Component {
 
     render() {		
         return (
-            <div style={{marginTop: 10}}>
+            
+			<div style={{marginTop: 10}}>
                 <h3>Login New User</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
