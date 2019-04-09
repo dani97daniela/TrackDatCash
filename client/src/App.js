@@ -59,6 +59,7 @@ class App extends Component {
              <div className = "Picture">
 				<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
 			</div>
+		</div>
 		<Router>
           <div className="App">
 			
