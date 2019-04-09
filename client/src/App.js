@@ -54,12 +54,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className= "container">
-				<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
-             <div className = "Picture">
-				<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
-			</div>
-		</div>
+     
 		<Router>
           <div className="App">
 			
