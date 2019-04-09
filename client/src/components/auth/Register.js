@@ -53,11 +53,11 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-     <div className="App">
+      <div className="App">
 					
 		<div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
-          <div className="col s8 offset-s2">
+          
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
@@ -144,7 +144,6 @@ class Register extends Component {
             </form>
           </div>
         </div>
-	
       </div>
     );
   }
