@@ -72,7 +72,9 @@ class App extends Component {
 			  <PrivateRoute exact path="/monthly" component={Monthly} />
 			  <PrivateRoute exact path="/group" component={Group} />
             </Switch>
-          
+          <div className = "Picture">
+						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
+					</div>
 		  </div>
 		  
         </Router>
