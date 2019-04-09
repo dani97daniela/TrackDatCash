@@ -25,7 +25,10 @@ import Dashboard from "./components/dashboard/Dashboard";
 
 import "./App.css";
 
-import logo from "./giphy.gif";
+
+import picture from "./fin_plan.jpg";
+import logo2 from "./o-logo.png";
+import logo from "./money_sign.png";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -53,6 +56,8 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+			<div className= "container">
+				<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
             <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
@@ -66,6 +71,7 @@ class App extends Component {
 			  <PrivateRoute exact path="/group" component={Group} />
             </Switch>
           </div>
+		  </div>
 		  
         </Router>
       </Provider>
