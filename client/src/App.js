@@ -58,11 +58,12 @@ class App extends Component {
           <div className="App">
 			<div className= "container">
 				<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
-            </div>
+            
 			<Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+			</div>
             <Switch>
               <PrivateRoute exact path="/dashboard" component={ExpensesList} />
 			  <PrivateRoute exact path="/create" component={CreateExpense} />
