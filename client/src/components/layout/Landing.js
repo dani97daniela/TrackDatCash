@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import 'C:\Users\Daniela Otero\Documents\GitHub\TrackDatCash\client\src\components\App.css';
 
+import logo2 from "./o-logo.png";
+import logo from "./money_sign.png";
+import picture from "./fin_plan.jpg";
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      	
+		<div className= "App">
+			
+				<div className="container">
+					<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
+				</div>
+				<div className = "Picture">
+						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
+					</div>
+	  <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
            
@@ -39,6 +52,7 @@ class Landing extends Component {
           </div>
         </div>
       </div>
+	 </div>
     );
   }
 }
