@@ -13,7 +13,7 @@ class Landing extends Component {
 			
 				<div className="container">
 					
-					<nav className = "navbar navbar-expand-sm navbar-light bg-light">
+					<nav className = "navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src = {logo2} width = "400" height = "80"  alt = ""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
