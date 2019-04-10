@@ -21,8 +21,10 @@ class Landing extends Component {
 						  <Link to="register" className="nav-link">Register</Link>
 						</li>
 						</ul>
+					</div>
+					</nav>
 				</div>
-				<div className = "Picture">
+					<div className = "Picture">
 						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
 					</div>
 	  <div style={{ height: "75vh" }} className="container valign-wrapper">
