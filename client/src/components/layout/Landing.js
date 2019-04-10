@@ -12,7 +12,14 @@ class Landing extends Component {
 		<div className= "App">
 			
 				<div className="container">
-					<left><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></left>
+					
+					<nav className = "navbar navbar-expand-sm navbar-light bg-light">
+					<img src = {logo2} width = "400" height = "80"  alt = ""/>
+					<div className="collpase navbar-collapse">
+					  <ul className="navbar-nav mr-auto">
+						<li className="navbar-item">
+						  <Link to="register" className="nav-link">Register</Link>
+						</li>
 				</div>
 				<div className = "Picture">
 						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
