@@ -18,10 +18,10 @@ class Landing extends Component {
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
-						  <Link to="register" className="nav-link">Register</Link>
+						  <right><Link to="register" className="nav-link">Register</Link></right>
 						</li>
 						<li className="navbar-item">
-						  <Link to="login" className="nav-link">Login</Link>
+						 <right> <Link to="login" className="nav-link">Login</Link><right>
 						</li>
 						</ul>
 					</div>
