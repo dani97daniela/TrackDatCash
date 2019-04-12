@@ -31,13 +31,11 @@ class Landing extends Component {
 						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
 					</div>
 					<div className = "Description">
-						<center><h5><span class="glyphicon glyphicon-asterisk">Your personal or group-based Financial Planner!</span></h5></center>
-						<center><p><span class = "glyphicon glyphicon-usd">Take charge of your Finances</span></p></center>
-						<center><p> Here in Track Dat Ca$h you can.....</p></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty">Track your expenses monthly</span></p></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty">Analyze your expenses</span></p></center>
 						
+						<center><h1> Here in Track Dat Ca$h you can.....</h1></center>
+						<p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p>
+						<p><span class = "glyphicon glyphicon-star-empty">Track your expenses monthly</span></p>
+						<p><span class = "glyphicon glyphicon-star-empty">Analyze your expenses</span></p>
 						
 					
 						<center><h6>Be your OWN financial advisor!</h6></center>
