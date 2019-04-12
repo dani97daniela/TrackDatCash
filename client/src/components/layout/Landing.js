@@ -32,7 +32,7 @@ class Landing extends Component {
 					</div>
 					<div className = "Description">
 						<p><span class="glyphicon glyphicon-search">Your personal or group-based Financial Planner!</span></p>
-						
+						<p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p> 
 						<center><h6>Here in Track Dat Ca$h,our goal is to give the user the ability to track their spending on a personal level, and even in a group level!</h6></center>
 						<center><h6> Take charge of your planning today! </h6></center>
 						<center><h6>Be your OWN financial advisor!</h6></center>
