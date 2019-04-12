@@ -14,7 +14,7 @@ class Landing extends Component {
 				<div className="container">
 					
 					<nav className = "navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
-					<img src = {logo2} width = "400" height = "80"  alt = ""/>
+					<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
@@ -30,7 +30,13 @@ class Landing extends Component {
 					<div className = "Picture">
 						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
 					</div>
-	  
+					</div className = "Description">
+						<center><h5>Your personal or group-based Financial Planner!</h5></center>
+						<center><h6>Here in Track Dat Ca$h,our goal is to give the user the ability to track their spending on a personal level, and even in a group level!</h6></center>
+						<center><h6> Take charge of your planning today! </h6></center>
+						<center><h6>Be your OWN financial advisor!</h6></center>
+						<center><h1><img src = {logo} width = "80" height = "80" class = "rounded-circle" alt = ""/></h1></center>
+					</div>
            
            
             <br />
