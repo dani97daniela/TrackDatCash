@@ -36,9 +36,6 @@ class Landing extends Component {
 						<p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p>
 						<p><span class = "glyphicon glyphicon-star-empty">Track your expenses monthly</span></p>
 						<p><span class = "glyphicon glyphicon-star-empty">Analyze your expenses</span></p>
-						
-					
-						<center><h6>Be your OWN financial advisor!</h6></center>
 						<center><h1><img src = {logo} width = "80" height = "80" class = "rounded-circle" alt = ""/></h1></center>
 					</div>
            
