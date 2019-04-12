@@ -1,6 +1,6 @@
 .App {
   
-  background-color: #f9f9f9;
+  background-color:#E3E4E2;
   height: 605px;
 }
 
@@ -65,7 +65,7 @@
 .Picture
 {
 	 display:inline-block;
-     width: 100px;
+     
 	 height: 100px;
 	 background-color:  #E3E4E2;
 	 padding-bottom: 50px;
