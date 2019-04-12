@@ -25,7 +25,7 @@
 	 background-color:  #E3E4E2;
 	 font-family: 'Script';
 	font-size: 17px;
-	padding: 110px 50px;
+	padding: 150px 50px;
 }
 .navbar-item{
 	color: #263830;
@@ -35,6 +35,7 @@
 	font-family: 'Script';
 	font-size: 17px;
 	background-color: #E3E4E2;
+	width: 100%;
 	
 }
 .btn-custom{
