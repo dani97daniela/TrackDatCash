@@ -1,6 +1,6 @@
 .App {
   
-  background-color: #E3E4E2;;
+  background-color: #E3E4E2;
   height: 605px;
 }
 
@@ -21,7 +21,7 @@
 .Description{
 	
 	 height : 600px;
-	
+	background-color: white;
 	
 	 font-family: 'Script';
 	font-size: 17px;
@@ -65,7 +65,7 @@
 .Picture
 {
 	 display:inline-block;
-     
+     background-color: white;
 	 height: 100px;
 	
 	 padding-bottom: 50px;
