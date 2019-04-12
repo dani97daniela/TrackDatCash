@@ -16,7 +16,7 @@ class Landing extends Component {
 					<nav className = "navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<center><h1><img src = {logo2} width = "400" height = "80"  alt = ""/></h1></center>
 					<div className="collpase navbar-collapse">
-					  <ul className="navbar-nav mr-auto">
+					  <ul className="navbar-nav ml-auto">
 						<li className="navbar-item">
 						  <right><Link to="register" className="nav-link">Register</Link></right>
 						</li>
