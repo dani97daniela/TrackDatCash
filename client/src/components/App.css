@@ -1,7 +1,7 @@
 .App {
   
-  background-color: #f9f9f9;
-  height: 605px;
+  background-color:#E3E4E2;
+  
 }
 
 .body
@@ -22,9 +22,10 @@
 	
 	 height : 600px;
 	
-	 background-color:  #E3E4E2;
+	 
 	 font-family: 'Script';
 	font-size: 17px;
+	padding: 150px;
 }
 .navbar-item{
 	color: #263830;
@@ -33,6 +34,7 @@
 	color:#263830;
 	font-family: 'Script';
 	font-size: 17px;
+	
 	
 }
 .btn-custom{
@@ -60,8 +62,9 @@
 }
 .Picture
 {
-	 height : 200px;
-	 background-color:  #E3E4E2;
+	 height : 100px;
+	 
+	 
 }
 @keyframes App-logo-spin {
   from { 
