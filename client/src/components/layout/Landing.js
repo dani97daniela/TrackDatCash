@@ -21,7 +21,7 @@ class Landing extends Component {
 						  <right><Link to="register" className="nav-link">Register</Link></right>
 						</li>
 						<li className="navbar-item">
-						 <right> <Link to="login" className="nav-link">Login</Link><right>
+						 <right> <Link to="login" className="nav-link">Login</Link></right>
 						</li>
 						</ul>
 					</div>
