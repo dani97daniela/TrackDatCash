@@ -63,11 +63,7 @@
   color: #61dafb;
 }
 .Picture
-{
-	 display:inline-block;
-     
-	 height: 100px;
-	 background-color:  #E3E4E2;
+{	 
 	 padding-bottom: 50px;
 }
 @keyframes App-logo-spin {
