@@ -10,7 +10,7 @@ class Landing extends Component {
     return (
       	
 		<div className= "App">
-			
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
 				<div className="container">
 					
 					<nav className = "navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
