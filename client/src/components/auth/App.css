@@ -20,7 +20,7 @@
 }
 .Description{
 	
-	 height : 500px;
+	 height : 600px;
 	
 	 background-color:  #E3E4E2;
 	 font-family: 'Script';
@@ -61,7 +61,7 @@
 }
 .Picture
 {
-	 height : 100px;
+	 height : 50px;
 	 background-color:  #E3E4E2;
 }
 @keyframes App-logo-spin {
