@@ -1,7 +1,7 @@
 .App {
   
   background-color:#E3E4E2;
-  height: 605px;
+  
 }
 
 .body
@@ -64,7 +64,7 @@
 {
 	 height : 100px;
 	 
-	 padding-bottom: 50px;
+	 
 }
 @keyframes App-logo-spin {
   from { 
