@@ -65,8 +65,8 @@
 .Picture
 {
 	 display:inline-block;
-    
-	 height : 100px;
+     width; 100px;
+	
 	 background-color:  #E3E4E2;
 	 padding-bottom: 50px;
 }
