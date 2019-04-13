@@ -20,10 +20,11 @@
 }
 .Description{
 	
-	display: block;
+	display: inline-block;
 	 margin-left: auto;
 	 margin-right:auto;
 	padding: 180px 40px;
+    
 }
 .navbar-item{
 	color: #263830;
