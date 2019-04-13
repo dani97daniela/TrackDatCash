@@ -8,7 +8,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import CreateUser from "./components/createUser";
+
 import ExpensesList from "./components/expenseList";
 import CreateExpense from "./components/createExpense";
 import EditExpense from "./components/editExpense";
