@@ -28,7 +28,7 @@ class Landing extends Component {
 					</nav>
 				</div>
 					<div className = "Picture">
-						<h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1>
+						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 					<div className = "Description">
 						
