@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import '../App.css';
+import '.../App.css';
 
 import logo2 from ".../o-logo.png";
 import logo from ".../money_sign.png";
