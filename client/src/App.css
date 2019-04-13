@@ -21,7 +21,8 @@
 .Description{
 	
 	display: block;
-	 
+	 font-style: oblique;
+	 font-variant: small-caps;
 	padding: 180px 80px;
 	float: left;
     
