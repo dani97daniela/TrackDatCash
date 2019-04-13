@@ -5,6 +5,7 @@ import '../../App.css';
 import logo2 from "../../o-logo.png";
 import logo from "../../money_sign.png";
 import picture from "../../fin_plan.jpg";
+import description from "../../descirptionpic.png"
 class Landing extends Component {
   render() {
     return (
@@ -31,12 +32,9 @@ class Landing extends Component {
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 					<div className = "Description">
+					<center><h1><img src = {description} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 						
-						<center><h3> Here in Track Dat Ca$h you can.....</h3></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty"> Track your expenses monthly</span></p></center>
-						<center><p><span class = "glyphicon glyphicon-star-empty"> Analyze your expenses</span></p></center>
-						<center><h1><img src = {logo} width = "80" height = "80" class = "rounded-circle" alt = ""/></h1></center>
+						
 					</div>
            
            
