@@ -5,7 +5,7 @@ import '../../App.css';
 import logo2 from "../../o-logo.png";
 import logo from "../../money_sign.png";
 import picture from "../../fin_plan.jpg";
-import description from "../../descirptionpic.png"
+import description from "../../pic.png"
 class Landing extends Component {
   render() {
     return (
