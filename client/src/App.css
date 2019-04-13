@@ -20,12 +20,10 @@
 }
 .Description{
 	
-	
-	
-	 
-	 font-family: 'Script';
-	font-size: 17px;
-	padding: 150px 40px;
+	display: block;
+	 margin-left: auto;
+	 margin-right:auto;
+	padding: 180px 40px;
 }
 .navbar-item{
 	color: #263830;
