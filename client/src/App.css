@@ -1,0 +1,76 @@
+.App {
+  
+  background-color:#E3E4E2;
+  
+}
+
+.body
+{
+	 display:inline-block;
+    border:8px solid gray;
+    width: 450px;
+    padding:50px 0;
+    background: #cccdcb;
+	
+}
+
+.navbar-custom{
+	
+	background-color: #94D6B7;
+}
+.Description{
+	
+	 height : 600px;
+	
+	 
+	 font-family: 'Script';
+	font-size: 17px;
+	padding: 150px;
+}
+.navbar-item{
+	color: #263830;
+}
+.container{
+	color:#263830;
+	font-family: 'Script';
+	font-size: 17px;
+	
+	
+}
+.btn-custom{
+	background-color: #94D6B7;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #64D435;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #E5DBBE;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.Picture
+{
+	 height : 100px;
+	 
+	 
+}
+@keyframes App-logo-spin {
+  from { 
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
