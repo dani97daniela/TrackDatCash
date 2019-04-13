@@ -33,9 +33,9 @@ class Landing extends Component {
 					<div className = "Description">
 						
 						<center><h3> Here in Track Dat Ca$h you can.....</h3></center>
-						<p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p>
-						<p><span class = "glyphicon glyphicon-star-empty">Track your expenses monthly</span></p>
-						<p><span class = "glyphicon glyphicon-star-empty">Analyze your expenses</span></p>
+						<center><p><span class = "glyphicon glyphicon-star-empty"> Plan your finances, keep a budget</span></p></center>
+						<center><p><span class = "glyphicon glyphicon-star-empty"> Track your expenses monthly</span></p></center>
+						<center><p><span class = "glyphicon glyphicon-star-empty"> Analyze your expenses</span></p></center>
 						<center><h1><img src = {logo} width = "80" height = "80" class = "rounded-circle" alt = ""/></h1></center>
 					</div>
            
