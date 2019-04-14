@@ -47,15 +47,15 @@ class Landing extends Component {
     
 							<div class="carousel-inner">
 								<div class="item active">
-									<img src={description} alt="Pic 1" style="width:100%;">
+									<img src={description} alt="Pic 1" style="width:100%;"/>
 								</div>
 
 								<div class="item">
-									<img src={logo} alt="Pic 2" style="width:100%;">
+									<img src={logo} alt="Pic 2" style="width:100%;"/>
 								</div>
 			
 								<div class="item">
-									<img src={logo2} alt="Pic 3" style="width:100%;">
+									<img src={logo2} alt="Pic 3" style="width:100%;"/>
 								</div>
 							</div>
 
