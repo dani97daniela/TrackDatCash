@@ -40,6 +40,7 @@ class Landing extends Component {
 					<div className = "footer">
 						<center><p> Team 13</p></center>
 						<center><p> Orlando Florida</p></center>
+					</div>
 						
 					
 					
