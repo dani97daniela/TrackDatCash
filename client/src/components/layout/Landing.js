@@ -47,27 +47,20 @@ class Landing extends Component {
     
 							<div class="carousel-inner">
 								<div class="item active">
-									<img src={description} alt="Pic 1" style="width:100%;"/>
+									<img src={description} alt="Pic 1" style="width:1100;height=300"/>
 								</div>
 
 								<div class="item">
-									<img src={logo} alt="Pic 2" style="width:100%;"/>
+									<img src={logo} alt="Pic 2" style="width:1100;height = 300"/>
 								</div>
 			
 								<div class="item">
-									<img src={logo2} alt="Pic 3" style="width:100%;"/>
+									<img src={logo2} alt="Pic 3" style="width:100;height = 300"/>
 								</div>
 							</div>
 
 
-						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						  <span class="glyphicon glyphicon-chevron-left"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="right carousel-control" href="#myCarousel" data-slide="next">
-							  <span class="glyphicon glyphicon-chevron-right"></span>
-							  <span class="sr-only">Next</span>
-						</a>
+						
 						</div>
 					</div>
 					
