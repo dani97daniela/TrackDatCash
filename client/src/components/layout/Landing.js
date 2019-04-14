@@ -87,7 +87,7 @@ class Landing extends Component {
       </div>
     </div>
   </div>
-</div><br>
+</div>
 
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
