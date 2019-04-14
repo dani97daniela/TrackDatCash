@@ -43,7 +43,7 @@ class Landing extends Component {
 				 <br />
 				<div className = "footer">
 					<center><p>Here in Track Dat Ca$h...</p></center>
-					<center><p>You have the option to view your expenses in a personal or group setting</p></centerr>
+					<center><p>You have the option to view your expenses in a personal or group setting</p></center>
 					<center><p>Plan your finances and keep a budget</p></center>
 					<center><p>Track your expenses monthly</p></center>
 					<center><p>Analyze your expenses</p></center>
