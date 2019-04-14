@@ -39,9 +39,9 @@
       min-height:200px;
   }
 .footer {
-      
+      background-color: light-blue;
       bottom:0;
-	  padding-top: 600px;
+	  padding-top: 520px;
 	  width: 100%;
 	  
     }
