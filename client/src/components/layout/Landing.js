@@ -11,7 +11,7 @@ class Landing extends Component {
     return (
       	
 		<div className= "App">
-			
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
@@ -35,7 +35,7 @@ class Landing extends Component {
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 					<div className = "Real_pics">
-					  <h2>Carousel Example</h2>  
+					   
 						<div id="myCarousel" class="carousel slide" data-ride="carousel">
    
 							<ol class="carousel-indicators">
@@ -60,7 +60,14 @@ class Landing extends Component {
 							</div>
 
 
-						
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						  <span class="glyphicon glyphicon-chevron-left"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel" data-slide="next">
+							  <span class="glyphicon glyphicon-chevron-right"></span>
+							  <span class="sr-only">Next</span>
+						</a>
 						</div>
 					</div>
 					
