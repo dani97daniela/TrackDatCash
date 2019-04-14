@@ -42,7 +42,7 @@ class Landing extends Component {
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 				 <br />
-				 <Carousel showArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}>
+				 <Carousel >
 					<div>
 						<img src={logo} />
 						<p className="legend">Legend 1</p>
