@@ -11,7 +11,7 @@ class Landing extends Component {
     return (
       	
 		<div className= "App">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+			
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
@@ -34,11 +34,11 @@ class Landing extends Component {
 					<div className = "Picture">
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
-					<div className = "Real_pics">
+					<div class="carousel-container"></div>
 					   
 						
 						
-					</div>
+					
 					
            
            
