@@ -39,7 +39,9 @@
       min-height:200px;
   }
 .footer {
-      background-color: light-blue;
+      font-family: 'Script';
+	  font-size: 17px;
+	  
       bottom:0;
 	  padding-top: 520px;
 	  width: 100%;
