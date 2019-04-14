@@ -42,23 +42,6 @@ class Landing extends Component {
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 				 <br />
-				 <Carousel >
-					<div>
-						<img src={logo} />
-						<p className="legend">Legend 1</p>
-					</div>
-					<div>
-						<img src={logo2} />
-						<p className="legend">Legend 2</p>
-					</div>
-					<div>
-						<img src={picture} />
-						<p className="legend">Legend 3</p>
-					</div>
-				</Carousel>
-				 
-   ReactDOM.render(<Landing />, document.querySelector('.demo-carousel'));         
-            
          
 		</div>
     );
