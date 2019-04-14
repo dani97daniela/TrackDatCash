@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+ 
 import '../../App.css';
 
 import logo2 from "../../o-logo.png";
 import logo from "../../money_sign.png";
 import picture from "../../fin_plan.jpg";
 import description from "../../pic.PNG";
+
 class Landing extends Component {
   render() {
     return (
@@ -37,8 +42,22 @@ class Landing extends Component {
 						<center><h1><img src = {picture} width = "1100" height = "300" class = "rounded" alt = ""/></h1></center>
 					</div>
 				 <br />
+				 <CarouselshowArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}>
+					<div>
+						<img src={logo} />
+						<p className="legend">Legend 1</p>
+					</div>
+					<div>
+						<img src={logo2} />
+						<p className="legend">Legend 2</p>
+					</div>
+					<div>
+						<img src={picture} />
+						<p className="legend">Legend 3</p>
+					</div>
+				</Carousel>
 				 
-            
+   ReactDOM.render(<Landing />, document.querySelector('.demo-carousel'));         
             
          
 		</div>
