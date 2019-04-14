@@ -42,14 +42,14 @@ class Landing extends Component {
     
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image"/>
         <div class="carousel-caption">
           
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
+        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image"/>
         <div class="carousel-caption">
           
         </div>      
@@ -71,11 +71,11 @@ class Landing extends Component {
   <h3>What We Do</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"/>
       <p>Current Project</p>
     </div>
     <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"/>
       <p>Project 2</p>    
     </div>
     <div class="col-sm-4">
