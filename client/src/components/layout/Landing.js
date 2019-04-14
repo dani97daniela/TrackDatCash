@@ -11,7 +11,8 @@ class Landing extends Component {
     return (
       	
 		<div className= "App">
-			
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
@@ -36,7 +37,9 @@ class Landing extends Component {
 					</div>
 					<div class="carousel-container"></div>
 					   
-						
+					<div className = "footer">
+						<center><p> Team 13</p></center>
+						<center><p> Orlando Florida</p></center>
 						
 					
 					
