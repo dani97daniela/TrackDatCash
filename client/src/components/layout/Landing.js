@@ -44,6 +44,7 @@ class Landing extends Component {
 				<div className = "footer">
 					<center><p> Team 13</p></center>
 					<center><p> Orlando Florida</p></center>
+					<center><img src = {logo} width = "100" height = "40"  alt = ""/></center>
 				</div>
 		</div>
 		
