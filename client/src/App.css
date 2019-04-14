@@ -16,7 +16,8 @@
 }
 
 .navbar-custom{
-	
+	margin-bottom: 0;
+      border-radius: 0;
 	background-color: #94D6B7;
 }
 
