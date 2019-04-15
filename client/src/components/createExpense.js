@@ -181,7 +181,7 @@ export default class CreateExpense extends Component {
                 
 				
 				<nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
-					<img src={logo} width="100" height="100" alt=""/>
+					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
