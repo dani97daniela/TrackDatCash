@@ -144,7 +144,7 @@ class TodosList extends Component {
 				<h3><center>Category List</center></h3>
 				
 				
-			  <h5>Total: ${this.state.total} </h5>
+			  <center><h5>Total: ${this.state.total} </h5></center>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">
