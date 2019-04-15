@@ -165,18 +165,18 @@ class TodosList extends Component {
 			  <center><div>{"Your group code is: " + this.state.userCode}</div></center>
 			  
 			  <form onSubmit={this.onSubmit}>
-				<label>GroupCode:
+				<center><label>GroupCode:
 					<input  type="text"
 					placeholder={this.state.userCode}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeGroupCode}
 						/>
-				</label>
-				<input type="submit" value="Update" className="btn btn-info" />
+				</label></center>
+				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
-			  <h5>Total: ${this.state.total} </h5>
+			  <center><h5>Total: ${this.state.total} </h5></center>
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 30 }} >
 				  
