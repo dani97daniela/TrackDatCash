@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
+
+import jwt_decode from "jwt-decode";
+import logo from "../o-logo.png";
+
+
 const optionsCategory = [
   { value: 'Food', label: 'Food' },
   { value: 'Bills', label: 'Bills' },
