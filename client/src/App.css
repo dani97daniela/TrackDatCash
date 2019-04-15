@@ -10,9 +10,13 @@
 	 display:inline-block;
     border:8px solid gray;
     width: 450px;
-    padding:50px 50px;
+    padding:50px 0;
     background: #cccdcb;
 	
+}
+.AppRegister{
+	 background-color:#E3E4E2;
+	height: 660px;
 }
 
 .navbar-custom{

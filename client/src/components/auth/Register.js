@@ -55,7 +55,7 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="App">
+      <div className="AppRegister">
 					
 		<div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
@@ -138,7 +138,7 @@ class Register extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-info"
                 >
                   Sign up
                 </button>
