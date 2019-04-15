@@ -10,7 +10,7 @@
 	 display:inline-block;
     border:8px solid gray;
     width: 450px;
-    padding:50px 0;
+    padding:50px 50px;
     background: #cccdcb;
 	
 }
@@ -72,6 +72,10 @@
 
 .App-link {
   color: #61dafb;
+}
+.AppLogin{
+  background-color:#E3E4E2;
+  height: 660px;
 }
 .Picture
 {

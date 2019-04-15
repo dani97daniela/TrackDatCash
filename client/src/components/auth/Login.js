@@ -55,7 +55,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="App">
+      <div className="AppLogin">
         <div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
 		
