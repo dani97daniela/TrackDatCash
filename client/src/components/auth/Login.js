@@ -56,7 +56,7 @@ class Login extends Component {
 
     return (
       <div className="AppLogin">
-        <div className = "body">
+        <center><div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
 		
          
@@ -125,6 +125,7 @@ class Login extends Component {
         
         
 		</div>
+		</center>
       </div>
     );
   }
