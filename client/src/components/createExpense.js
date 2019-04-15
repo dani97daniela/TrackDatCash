@@ -270,7 +270,7 @@ export default class CreateExpense extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Create Expense" className="btn btn-info" />
+                        <center><input type="submit" value="Create Expense" className="btn btn-info" /></center>
                     </div>
                 </form>
             </div>

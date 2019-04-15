@@ -173,7 +173,7 @@ class TodosList extends Component {
 						onChange={this.onChangeGroupCode}
 						/>
 				</label></center>
-				<input type="submit" value="Update" className="btn btn-info" />
+				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
 			  <center><h5>Total: ${this.state.total} </h5></center>
