@@ -37,11 +37,6 @@
 	
 	
 }
- .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
 .footer {
       font-family: 'Script';
 	  font-size: 20px;
