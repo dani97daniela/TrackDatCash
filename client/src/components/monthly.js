@@ -416,6 +416,8 @@ class TodosList extends Component {
 					Logout
 				</button>
 				
+			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
+			  
 			  <ColumnChart data={[
 					["Jan", this.state.Jan], 
 					["Feb", this.state.Feb], 
