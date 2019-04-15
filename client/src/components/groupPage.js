@@ -124,7 +124,7 @@ class TodosList extends Component {
     render() {		
         return (
             <div>
-              <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
+              
 			  
 			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="400" height="80" alt=""/>
@@ -147,8 +147,7 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-				</nav>
-				<button
+					<button
 					style={{
 					width: "150px",
 					borderRadius: "3px",
@@ -160,7 +159,10 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-			  <div>{"Your group code is: " + this.state.userCode}</div>
+				</nav>
+				<h3><center>Group Expenses</center></h3>
+				
+			  <center><div>{"Your group code is: " + this.state.userCode}</div></center>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<label>GroupCode:

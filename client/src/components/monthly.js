@@ -105,7 +105,7 @@ class TodosList extends Component {
     render() {
         return (
             <div>
-              <h3><center><img src={logo} width="150" height="75" alt=""/>	Monthly Lists	<img src={logo} width="150" height="75" alt="" /></center></h3>
+              
 			  
 			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="400" height="80" alt=""/>
@@ -128,8 +128,7 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-				</nav>
-				<button
+					<button
 					style={{
 					width: "150px",
 					borderRadius: "3px",
@@ -141,6 +140,9 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
+				</nav>
+				<h3><center>Monthly Lists</center></h3>
+				
 				
 			  <h5>Total: ${this.state.total} </h5>
 				<div className="container">
