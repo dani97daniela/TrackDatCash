@@ -176,6 +176,28 @@ export default class EditExpense extends Component {
 	
         return (
             <div className= "App">
+				<nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
+					<img src={logo} width="400" height="80" alt=""/>
+					<div className="collpase navbar-collapse">
+					  <ul className="navbar-nav mr-auto">
+						<li className="navbar-item">
+						  <Link to="/dashboard" className="nav-link">All Expenses</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/create" className="nav-link">Create Expense</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/categories" className="nav-link">Categories</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/monthly" className="nav-link">Monthly</Link>
+						</li>
+						<li className="navbar-item">
+						  <Link to="/group" className="nav-link">Group</Link>
+						</li>
+					  </ul>
+					</div>
+				</nav>
                 <h3 align="center">Update Expense</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
