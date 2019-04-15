@@ -11,8 +11,16 @@ import { logoutUser } from "../actions/authActions";
 
 import jwt_decode from "jwt-decode";
 
+import ReactChartkick, { PieChart } from 'react-chartkick'
+import Chart from 'chart.js'
+ReactChartkick.addAdapter(Chart)
+
 var temp = [];
 var sum = 0;
+var tempFood = 0;
+var tempBills = 0;
+var tempEntertainment = 0;
+var tempOther = 0;
 
 const Expense = props => (
     <tr>
@@ -39,6 +47,10 @@ class TodosList extends Component {
 		
         this.state = {
 			expensesArray: [],
+			food: 0,
+			bills: 0,
+			entertainment: 0,
+			other: 0,
 			total: 0
 		};
     }
@@ -57,9 +69,53 @@ class TodosList extends Component {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
+				tempFood = sum;
                 this.setState({ 
 					expensesArray: temp,
+					food: tempFood,
 					total: sum
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Bills', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempBills = sumBy(temp, 'amount');
+                this.setState({ 
+					bills: tempBills
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Entertainment', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempEntertainment = sumBy(temp, 'amount');
+                this.setState({ 
+					entertainment: tempEntertainment
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Other', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempOther = sumBy(temp, 'amount');
+                this.setState({ 
+					other: tempOther
 				});
             })
             .catch(function (error){
@@ -105,9 +161,7 @@ class TodosList extends Component {
     render() {
         return (
             <div>
-              
-			  
-			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
+              <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
@@ -142,9 +196,15 @@ class TodosList extends Component {
 				</button>
 				</nav>
 				<h3><center>Category List</center></h3>
-				
-				
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			
+			  <PieChart data={[
+					["Food", this.state.food], 
+					["Bills", this.state.bills], 
+					["Entertainment", this.state.entertainment], 
+					["Other", this.state.other]]
+				} />
+			  
+			  <h5>Total: ${this.state.total} </h5>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">

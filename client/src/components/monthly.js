@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
-import logo from "../krabs.gif";
+import logo from "../o-logo.png";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -378,10 +378,8 @@ class TodosList extends Component {
     render() {
         return (
             <div>
-              <h3><center><img src={logo} width="150" height="75" alt=""/>	Monthly Lists	<img src={logo} width="150" height="75" alt="" /></center></h3>
-			  
-			  <nav className="navbar navbar-expand-sm navbar-light bg-light">
-					<img src={logo} width="100" height="100" alt=""/>
+              <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
+					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
@@ -401,9 +399,7 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-					<img src={logo} width="100" height="100" alt=""/>
-				</nav>
-				<button
+					<button
 					style={{
 					width: "150px",
 					borderRadius: "3px",
@@ -415,6 +411,8 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
+				</nav>
+				<h3><center>Monthly Lists</center></h3>
 				
 			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
 			  
