@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
-import logo from "../o-logo.PNG";
+import logo from "../../o-logo.PNG";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";

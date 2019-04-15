@@ -12,7 +12,7 @@ import { logoutUser } from "../actions/authActions";
 
 import jwt_decode from "jwt-decode";
 
-import logo from "../o-logo.PNG";
+import logo from "../../o-logo.PNG";
 
 const optionsCategory = [
   { value: 'Food', label: 'Food' },
