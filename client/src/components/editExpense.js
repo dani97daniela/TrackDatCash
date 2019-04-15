@@ -175,7 +175,7 @@ export default class EditExpense extends Component {
 		const { selectedDay } = this.state;
 	
         return (
-            <div>
+            <div className= "App">
                 <h3 align="center">Update Expense</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
@@ -245,7 +245,7 @@ export default class EditExpense extends Component {
                     <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Update Expense" className="btn btn-success" />
+                        <input type="submit" value="Update Expense" className="btn btn-info" />
 						<button type="submit" class="btn btn-danger" onClick={() => {this.deleteExpense()}}>Delete</button>
                     </div>
                 </form>

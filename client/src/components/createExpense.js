@@ -178,7 +178,7 @@ export default class CreateExpense extends Component {
         return (
 			<div className = "App">	
 		   <div style={{marginTop: 10}}>
-                <h3>Create New Expense</h3>
+                
 				
 				<nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="100" height="100" alt=""/>
@@ -202,6 +202,7 @@ export default class CreateExpense extends Component {
 					  </ul>
 					</div>
 				</nav>
+				<center><h3>Create New Expense</h3></center>
 				
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
@@ -269,7 +270,7 @@ export default class CreateExpense extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Create Expense" className="btn btn-success" />
+                        <input type="submit" value="Create Expense" className="btn btn-info" />
                     </div>
                 </form>
             </div>
