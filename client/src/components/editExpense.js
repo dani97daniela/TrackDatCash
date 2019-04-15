@@ -277,9 +277,10 @@ export default class EditExpense extends Component {
 
                     <br />
 
-                    <div className="form-group">
+                    <div style = "text-align: center">
                        <center><input type="submit" value="Update Expense" className="btn btn-info" /></center>
-						<center><button style="margin:5px;" type="submit" class="btn btn-danger" onClick={() => {this.deleteExpense()}}>Delete</button></center>
+						<div class= "divider'/>
+						<center><button type="submit" class="btn btn-danger" onClick={() => {this.deleteExpense()}}>Delete</button></center>
                     </div>
                 </form>
             </div>
