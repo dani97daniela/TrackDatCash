@@ -176,7 +176,8 @@ export default class CreateExpense extends Component {
 		const { selectedDay } = this.state;
 		
         return (
-            <div style={{marginTop: 10}}>
+			<div className = "App">	
+		   <div style={{marginTop: 10}}>
                 <h3>Create New Expense</h3>
 				
 				<nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
@@ -272,6 +273,7 @@ export default class CreateExpense extends Component {
                     </div>
                 </form>
             </div>
+		</div>
         )
     }
 }

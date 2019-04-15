@@ -127,7 +127,7 @@ class TodosList extends Component {
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
 			  
 			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
-					<img src={logo} width="100" height="100" alt=""/>
+					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
