@@ -57,7 +57,7 @@ class Register extends Component {
     return (
       <div className="AppRegister">
 					
-		<div className = "body">
+		<center><div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
           
             <Link to="/" className="btn-flat waves-effect">
@@ -145,6 +145,7 @@ class Register extends Component {
               </div>
             </form>
           </div>
+		  </center>
         
       </div>
     );
