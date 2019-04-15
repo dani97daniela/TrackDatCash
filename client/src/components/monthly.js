@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
-import logo from "../o-logo.png";
+import logo from "../krabs.gif";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -11,8 +11,24 @@ import { logoutUser } from "../actions/authActions";
 
 import jwt_decode from "jwt-decode";
 
+import ReactChartkick, { ColumnChart } from 'react-chartkick'
+import Chart from 'chart.js'
+ReactChartkick.addAdapter(Chart)
+
 var temp = [];
 var sum = 0;
+var tempJan = 0;
+var tempFeb = 0;
+var tempMar = 0;
+var tempApr = 0;
+var tempMay = 0;
+var tempJun = 0;
+var tempJul = 0;
+var tempAug = 0;
+var tempSep = 0;
+var tempOct = 0;
+var tempNov = 0;
+var tempDec = 0;
 
 const Expense = props => (
     <tr>
@@ -35,10 +51,27 @@ class TodosList extends Component {
         super(props);
 		
 		this.onChangeMonth = this.onChangeMonth.bind(this);
+		this.onChangeYear = this.onChangeYear.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
+		this.updateCharts = this.updateCharts.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		
         this.state = {
 			expensesArray: [],
+			month: 'Jan',
+			year: 2019,
+			Jan: 0,
+			Feb: 0,
+			Mar: 0,
+			Apr: 0,
+			May: 0,
+			Jun: 0,
+			Jul: 0,
+			Aug: 0,
+			Sep: 0,
+			Oct: 0,
+			Nov: 0,
+			Dec: 0,
 			total: 0
 		};
     }
@@ -50,27 +83,234 @@ class TodosList extends Component {
 	
 	componentDidMount() {		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.post('/expenses/month/Jan', {
-			id: idOfUser
+        axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: this.state.month,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
+				tempJan = sum;
                 this.setState({ 
 					expensesArray: temp,
+					Jan: tempJan,
 					total: sum
 				});
             })
             .catch(function (error){
                 console.log(error);
             })
+		
+		this.updateCharts();
     }
 	
-	onChangeMonth(month) {
+	updateCharts(){
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.post('expenses/month/'+month, {
-			id: idOfUser
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Jan',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempJan = sumBy(temp, 'amount');
+                this.setState({ 
+					Jan: tempJan
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Feb',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempFeb = sumBy(temp, 'amount');
+                this.setState({ 
+					Feb: tempFeb
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Mar',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempMar = sumBy(temp, 'amount');
+                this.setState({ 
+					Mar: tempMar
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Apr',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempApr = sumBy(temp, 'amount');
+                this.setState({ 
+					Apr: tempApr
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'May',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempMay = sumBy(temp, 'amount');
+                this.setState({ 
+					May: tempMay
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Jun',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempJun = sumBy(temp, 'amount');
+                this.setState({ 
+					Jun: tempJun
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Jul',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempJul = sumBy(temp, 'amount');
+                this.setState({ 
+					May: tempMay
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Aug',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempAug = sumBy(temp, 'amount');
+                this.setState({ 
+					Aug: tempAug
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Sep',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempSep = sumBy(temp, 'amount');
+                this.setState({ 
+					Sep: tempSep
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Oct',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempOct = sumBy(temp, 'amount');
+                this.setState({ 
+					Oct: tempOct
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Nov',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempNov = sumBy(temp, 'amount');
+                this.setState({ 
+					Nov: tempNov
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/month', {
+			id: idOfUser,
+			newMonth: 'Dec',
+			newYear: this.state.year
+		})
+            .then(response => {
+				temp = response.data;
+				tempDec = sumBy(temp, 'amount');
+                this.setState({ 
+					Dec: tempDec
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+	}
+	
+	onChangeMonth(e) {	
+		this.setState({
+            month: e
+        });
+		
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+        axios.post('expenses/month', {
+			id: idOfUser,
+			newMonth: e,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -95,6 +335,39 @@ class TodosList extends Component {
 				total: sum
 			});
     }
+	
+	onChangeYear(e) {
+		this.setState({
+            year: e.target.value
+        });
+        
+    }
+	
+	onSubmit(e) {
+        e.preventDefault();
+		
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+		axios.post('expenses/month', {
+			id: idOfUser,
+			newMonth: this.state.month,
+			newYear: this.state.year
+			
+		})
+            .then(response => {
+				temp = response.data;
+				temp = sortBy(temp, ['description', 'amount']);
+				sum = sumBy(temp, 'amount');
+                this.setState({ 
+					expensesArray: temp,
+					total: sum
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })	
+		
+		this.updateCharts();
+    }
 
     listOfExpenses() {
         return this.state.expensesArray.map(function(currentExpense, i){
@@ -105,10 +378,10 @@ class TodosList extends Component {
     render() {
         return (
             <div>
-              
+              <h3><center><img src={logo} width="150" height="75" alt=""/>	Monthly Lists	<img src={logo} width="150" height="75" alt="" /></center></h3>
 			  
-			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
-					<img src={logo} width="400" height="80" alt=""/>
+			  <nav className="navbar navbar-expand-sm navbar-light bg-light">
+					<img src={logo} width="100" height="100" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
 						<li className="navbar-item">
@@ -128,7 +401,9 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-					<button
+					<img src={logo} width="100" height="100" alt=""/>
+				</nav>
+				<button
 					style={{
 					width: "150px",
 					borderRadius: "3px",
@@ -140,11 +415,37 @@ class TodosList extends Component {
 					>
 					Logout
 				</button>
-				</nav>
-				<h3><center>Monthly Lists</center></h3>
 				
+			  <ColumnChart data={[
+					["Jan", this.state.Jan], 
+					["Feb", this.state.Feb], 
+					["Mar", this.state.Mar],
+					["Apr", this.state.Apr],
+					["May", this.state.May],
+					["Jun", this.state.Jun],
+					["Jul", this.state.Jul],
+					["Aug", this.state.Aug],
+					["Sep", this.state.Sep],
+					["Oct", this.state.Oct],
+					["Nov", this.state.Nov],
+					["Dec", this.state.Dec]
+				]} />	
 				
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			  <h5>Total: ${this.state.total} </h5>
+			  
+			  <form onSubmit={this.onSubmit}>
+				<label>Current Year:
+					<input  type="text"
+					placeholder={this.state.year}
+						className="form-control"
+						value={this.state.cat}
+						onChange={this.onChangeYear}
+						/>
+				</label>
+				<input type="submit" value="Update" className="btn btn-info" />
+			  </form>
+			  
+			  
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">

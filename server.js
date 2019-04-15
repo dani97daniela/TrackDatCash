@@ -134,10 +134,11 @@ expenseRoutes.post("/category/:newCategory", (req, res, next) => {
 });
 
 // Route to return all expenses for a specific month
-expenseRoutes.route("/month/:newMonth").post(function(req, res) {
+expenseRoutes.route("/month").post(function(req, res) {
   const usersId = req.body.id.toString();
-  const month = req.params.newMonth;
-  Expense.find({userId: usersId, month: month}, function(err, expenses) {
+  const month = req.body.newMonth;
+  const year = req.body.newYear;
+  Expense.find({userId: usersId, month: month, year: year}, function(err, expenses) {
 	console.log(expenses);
 	if (err) {
 		console.log(err);
