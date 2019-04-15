@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
-import logo from "../group.jpg";
+import logo from "../o-logo.PNG";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -126,7 +126,7 @@ class TodosList extends Component {
             <div>
               <h3><center><img src={logo} width="200" height="100" alt=""/>	Group Expenses <img src={logo} width="200" height="100" alt="" /></center></h3>
 			  
-			  <nav className="navbar navbar-expand-sm navbar-light bg-light">
+			  <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="100" height="100" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
@@ -147,7 +147,6 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-					<img src={logo} width="100" height="100" alt=""/>
 				</nav>
 				<button
 					style={{

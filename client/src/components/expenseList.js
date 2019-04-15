@@ -10,7 +10,7 @@ import { logoutUser } from "../actions/authActions";
 
 import jwt_decode from "jwt-decode";
 
-import logo from "../giphy.gif";
+import logo from "../o-logo.PNG";
 
 var temp = [];
 var sum = 0;
@@ -89,7 +89,7 @@ class TodosList extends Component {
             <div>
                 <h3><center>All Expenses</center></h3>
 				
-				<nav className="navbar navbar-expand-sm navbar-light bg-light">
+				<nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top ">
 					<img src={logo} width="100" height="100" alt=""/>
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
@@ -110,7 +110,6 @@ class TodosList extends Component {
 						</li>
 					  </ul>
 					</div>
-					<img src={logo} width="100" height="100" alt=""/>
 				</nav>
 				<button
 					style={{
