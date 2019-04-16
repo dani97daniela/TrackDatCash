@@ -52,9 +52,11 @@ class TodosList extends Component {
 		
 		this.onChangeMonth = this.onChangeMonth.bind(this);
 		this.onChangeYear = this.onChangeYear.bind(this);
+		this.onChangeBudget = this.onChangeBudget.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
 		this.updateCharts = this.updateCharts.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onSubmitBudget = this.onSubmitBudget.bind(this);
 		
         this.state = {
 			expensesArray: [],
@@ -72,6 +74,8 @@ class TodosList extends Component {
 			Oct: 0,
 			Nov: 0,
 			Dec: 0,
+			budget: 0,
+			balance: 0,
 			total: 0
 		};
     }
@@ -343,6 +347,22 @@ class TodosList extends Component {
         
     }
 	
+	onChangeBudget(e) {
+		this.setState({
+            budget: e.target.value
+		},() =>{
+			this.setState({
+			  balance: this.state.total - this.state.budget
+			});
+        });
+    }
+	
+	onSubmitBudget(e) {
+		e.preventDefault();
+		
+		this.updateCharts();
+	}
+	
 	onSubmit(e) {
         e.preventDefault();
 		
@@ -431,7 +451,9 @@ class TodosList extends Component {
 					["Dec", this.state.Dec]
 				]} />	
 				
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
+			  <center><h5>Budget: ${this.state.budget} </h5></center>
+			  <center><h5>Balance: ${this.state.balance} </h5></center>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<center><label>Current Year:
@@ -440,6 +462,18 @@ class TodosList extends Component {
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeYear}
+						/>
+				</label></center>
+				<center><input type="submit" value="Update" className="btn btn-info" /></center>
+			  </form>
+			  
+			  <form onSubmit={this.onSubmitBudget}>
+				<center><label>Budget for {this.state.year}, {this.state.month}: {this.state.budget}
+					<input  type="text"
+					placeholder={this.state.budget}
+						className="form-control"
+						value={this.state.cat}
+						onChange={this.onChangeBudget}
 						/>
 				</label></center>
 				<center><input type="submit" value="Update" className="btn btn-info" /></center>
