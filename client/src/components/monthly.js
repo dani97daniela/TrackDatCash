@@ -345,6 +345,7 @@ class TodosList extends Component {
             year: e.target.value
         });
         
+		onSubmit();
     }
 	
 	onChangeBudget(e) {
@@ -363,16 +364,14 @@ class TodosList extends Component {
 		this.updateCharts();
 	}
 	
-	onSubmit(e) {
-        e.preventDefault();
-		
+	onSubmit() {	
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
 		axios.post('expenses/month', {
 			id: idOfUser,
 			newMonth: this.state.month,
 			newYear: this.state.year
 			
-		})
+			})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
@@ -455,20 +454,16 @@ class TodosList extends Component {
 			  <center><h5>Budget: ${this.state.budget} </h5></center>
 			  <center><h5>Balance: ${this.state.balance} </h5></center>
 			  
-			  <form onSubmit={this.onSubmit}>
-				<center><label>Current Year:
-					<input  
-						type="text"
-						placeholder={this.state.year}
-						className="form-control"
-						value={this.state.cat}
-						onChange={this.onChangeYear}
-					/>
-				</label></center>
-				<center><input type="submit" value="Update" className="btn btn-info" /></center>
-			  </form>
+			<center><label>Current Year:
+				<input  
+					type="text"
+					placeholder={this.state.year}
+					value={this.state.year}
+					onChange={this.onChangeYear}
+				/>
+			</label></center>
 			  
-			<center><label>"Budget for " + {this.state.year} + ", " + {this.state.month}": " + {this.state.budget}
+			<center><label>{"Budget for " + this.state.year + ", " + this.state.month": " + this.state.budget}
 				<input  
 					type="text"
 					placeholder={this.state.budget}
