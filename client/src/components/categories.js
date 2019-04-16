@@ -31,7 +31,6 @@ const Expense = props => (
     <tr>
         <td>{props.item.description}</td>
         <td>{props.item.amount}</td>
-		<td>{props.item.category}</td>
         <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
@@ -318,9 +317,6 @@ class TodosList extends Component {
                             <th data-field="amount" 
 								onClick={() => {this.onChangeSort('amount')}
 								}>Amount</th>
-							<th data-field="category" 
-								onClick={() => {this.onChangeSort('category')}
-								}>Category</th>
                             <th data-field="month" 
 								onClick={() => {this.onChangeSort('month')}
 								}>Month</th>

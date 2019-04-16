@@ -357,7 +357,9 @@ class TodosList extends Component {
     }
 	
 	onSubmitBudget(e) {
-		e.preventDefault();		
+		e.preventDefault();	
+
+		this.updateCharts();
 	}
 	
 	onSubmit(e) {	
@@ -429,7 +431,7 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Monthly View</center></h3>
+				<h3><center>{this.state.month + " Expenses"}</center></h3>
 				
 			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
 			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
@@ -514,9 +516,6 @@ class TodosList extends Component {
 							<th data-field="category" 
 								onClick={() => {this.onChangeSort('category')}
 								}>Category</th>
-                            <th data-field="month" 
-								onClick={() => {this.onChangeSort('month')}
-								}>Month</th>
                             <th data-field="day" 
 								onClick={() => {this.onChangeSort('day')}
 								}>Day</th>
