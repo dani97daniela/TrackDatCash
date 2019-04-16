@@ -377,7 +377,7 @@ class TodosList extends Component {
 
     render() {
         return (
-            <div className = "App">
+            <div className = "AppM">
               <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
@@ -445,7 +445,7 @@ class TodosList extends Component {
 				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
-			  
+			  <div className = "divider"/>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">

@@ -4,7 +4,10 @@
   height: 900px;
   
 }
-
+.AppM{
+	background-color:#E3E4E2;
+	height: 1100px;
+}
 .body
 {
 	 display:inline-block;
