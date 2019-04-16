@@ -360,7 +360,7 @@ class TodosList extends Component {
 		e.preventDefault();		
 	}
 	
-	onSubmit() {	
+	onSubmit(e) {	
 		e.preventDefault();
 		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
