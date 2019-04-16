@@ -343,9 +343,7 @@ class TodosList extends Component {
 	onChangeYear(e) {
 		this.setState({
             year: e.target.value
-        });
-        
-		this.onSubmit();
+        });        
     }
 	
 	onChangeBudget(e) {
@@ -359,12 +357,12 @@ class TodosList extends Component {
     }
 	
 	onSubmitBudget(e) {
-		e.preventDefault();
-		
-		this.updateCharts();
+		e.preventDefault();		
 	}
 	
 	onSubmit() {	
+		e.preventDefault();
+		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
 		axios.post('expenses/month', {
 			id: idOfUser,
@@ -453,17 +451,21 @@ class TodosList extends Component {
 				
 			  <center><h5>Budget: ${this.state.budget} </h5></center>
 			  <center><h5>Balance: ${this.state.balance} </h5></center>
-			  
-			<center><label>Current Year:
-				<input  
-					type="text"
-					placeholder={this.state.year}
-					value={this.state.year}
-					onChange={this.onChangeYear}
-				/>
-			</label></center>
-			  
-			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + this.state.budget}
+			
+			<form onSubmit={this.onSubmit}>
+				<center><label>Current Year:
+					<input  
+						type="text"
+						placeholder={this.state.year}
+						className="form-control"
+						value={this.state.year}
+						onChange={this.onChangeYear}
+					/>
+					<input type="submit" value="Update" className="btn btn-info" /></center>
+				</label></center>
+			  </form>
+	
+			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
 				<input  
 					type="text"
 					placeholder={this.state.budget}
