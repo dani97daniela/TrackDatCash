@@ -202,7 +202,7 @@ class TodosList extends Component {
 					["Bills", this.state.bills], 
 					["Entertainment", this.state.entertainment], 
 					["Other", this.state.other]]
-				} backgroundColor:  ["#f7adce", "#7fd3f7","#c49bdf","#ffde17"]/>
+				} backgroundColor:{["#f7adce", "#7fd3f7","#c49bdf","#ffde17"]}/>
 	
 			  <center><h5>Total: ${this.state.total} </h5></center>
 				<div className="container">
