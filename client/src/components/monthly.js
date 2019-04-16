@@ -431,18 +431,18 @@ class TodosList extends Component {
 					["Dec", this.state.Dec]
 				]} />	
 				
-			  <h5>Total: ${this.state.total} </h5>
+			  <center><h5>Total: ${this.state.total} </h5></center>
 			  
 			  <form onSubmit={this.onSubmit}>
-				<label>Current Year:
+				<center><label>Current Year:
 					<input  type="text"
 					placeholder={this.state.year}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeYear}
 						/>
-				</label>
-				<input type="submit" value="Update" className="btn btn-info" />
+				</label></center>
+				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
 			  
