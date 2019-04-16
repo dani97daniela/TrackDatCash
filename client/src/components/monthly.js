@@ -351,7 +351,7 @@ class TodosList extends Component {
             budget: e.target.value
 		},() =>{
 			this.setState({
-			  balance: this.state.total - this.state.budget
+			  balance: this.state.budget - this.state.total
 			});
         });
     }
@@ -448,9 +448,18 @@ class TodosList extends Component {
 					["Nov", this.state.Nov],
 					["Dec", this.state.Dec]
 				]} />	
+			
+			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
+			<input  
+				type="text"
+				placeholder={this.state.budget}
+				value={this.state.budget}
+				onChange={this.onChangeBudget}
+			/>
+			</label></center>
 				
-			  <center><h5>Budget: ${this.state.budget} </h5></center>
-			  <center><h5>Balance: ${this.state.balance} </h5></center>
+			<center><h5>Budget: ${this.state.budget} </h5></center>
+			<center><h5>Balance: ${this.state.balance} </h5></center>
 			
 			<form onSubmit={this.onSubmit}>
 				<center><label>Current Year:
@@ -464,15 +473,6 @@ class TodosList extends Component {
 					<input type="submit" value="Update" className="btn btn-info" />
 				</label></center>
 			  </form>
-	
-			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
-				<input  
-					type="text"
-					placeholder={this.state.budget}
-					value={this.state.budget}
-					onChange={this.onChangeBudget}
-				/>
-			</label></center>
 			  
 			  <div className = "divider"/>
 				<div className="container">
