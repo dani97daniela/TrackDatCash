@@ -196,12 +196,12 @@ class TodosList extends Component {
 				</button>
 				</nav>
 				<h3><center>Category List</center></h3>
-			<PieChart colors = {["#f7adce", "#7fd3f7","#c49bdf","#ffde17"]}/>
+		
 			  <PieChart data={[
-					["Food", this.state.food], 
-					["Bills", this.state.bills], 
-					["Entertainment", this.state.entertainment], 
-					["Other", this.state.other]]
+					["Food", this.state.food,  color = "#f7adce"], 
+					["Bills", this.state.bills, color = "#7fd3f7"], 
+					["Entertainment", this.state.entertainment, color = "#c49bdf" ], 
+					["Other", this.state.other, color = "#ffde17"]]
 				} />
 	
 			  <center><h5>Total: ${this.state.total} </h5></center>
