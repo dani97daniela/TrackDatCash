@@ -17,9 +17,14 @@ ReactChartkick.addAdapter(Chart)
 
 var temp = [];
 var sum = 0;
-var tempFood = 0;
 var tempBills = 0;
+var tempDining = 0;
+var tempEducation = 0;
 var tempEntertainment = 0;
+var tempGroceries = 0;
+var tempHealth = 0;
+var tempShopping = 0;
+var tempTransportation = 0;
 var tempOther = 0;
 
 const Expense = props => (
@@ -47,9 +52,14 @@ class TodosList extends Component {
 		
         this.state = {
 			expensesArray: [],
-			food: 0,
 			bills: 0,
+			dining: 0,
+			education: 0,
 			entertainment: 0,
+			groceries: 0,
+			health: 0,
+			shopping: 0,
+			transportation: 0,
 			other: 0,
 			total: 0
 		};
@@ -62,17 +72,17 @@ class TodosList extends Component {
 	
 	componentDidMount() {		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.post('/expenses/category/Food', {
+        axios.post('/expenses/category/Bills', {
 			id: idOfUser
 		})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
-				tempFood = sum;
+				tempBills = sum;
                 this.setState({ 
 					expensesArray: temp,
-					food: tempFood,
+					bills: tempBills,
 					total: sum
 				});
             })
@@ -80,14 +90,28 @@ class TodosList extends Component {
                 console.log(error);
             })
 		
-		axios.post('/expenses/category/Bills', {
+		axios.post('/expenses/category/Dining', {
 			id: idOfUser
 		})
             .then(response => {
 				temp = response.data;
-				tempBills = sumBy(temp, 'amount');
+				tempDining = sumBy(temp, 'amount');
                 this.setState({ 
-					bills: tempBills
+					dining: tempDining
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('/expenses/category/Education', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempEducation = sumBy(temp, 'amount');
+                this.setState({ 
+					education: tempEducation
 				});
             })
             .catch(function (error){
@@ -102,6 +126,62 @@ class TodosList extends Component {
 				tempEntertainment = sumBy(temp, 'amount');
                 this.setState({ 
 					entertainment: tempEntertainment
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Groceries', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempGroceries = sumBy(temp, 'amount');
+                this.setState({ 
+					groceries: tempGroceries
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
+		axios.post('/expenses/category/Health', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempHealth = sumBy(temp, 'amount');
+                this.setState({ 
+					health: tempHealth
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Shopping', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempShopping = sumBy(temp, 'amount');
+                this.setState({ 
+					shopping: tempShopping
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+		
+		axios.post('/expenses/category/Transportation', {
+			id: idOfUser
+		})
+            .then(response => {
+				temp = response.data;
+				tempTransportation = sumBy(temp, 'amount');
+                this.setState({ 
+					transportation: tempTransportation
 				});
             })
             .catch(function (error){
@@ -198,9 +278,14 @@ class TodosList extends Component {
 				<h3><center>Category List</center></h3>
 			
 			  <PieChart data={[
-					["Food", this.state.food], 
 					["Bills", this.state.bills], 
+					["Dining Out", this.state.dining], 
+					["Education", this.state.education], 
 					["Entertainment", this.state.entertainment], 
+					["Groceries", this.state.groceries], 
+					["Health", this.state.health], 
+					["Shopping", this.state.shopping], 
+					["Transportation", this.state.transportation], 
 					["Other", this.state.other]]
 				} />
 			  
@@ -209,10 +294,15 @@ class TodosList extends Component {
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">
 					  <ul className="navbar-nav mr-auto">
-						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Food')}}>Food</button>
 						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Bills')}}>Bills</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Dining')}}>Dining Out</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Education')}}>Education</button>
 						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Entertainment')}}>Entertainment</button>
-						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Other')}}>Other/Misc.</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Groceries')}}>Groceries</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Health')}}>Health</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Shopping')}}>Shopping</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Transportation')}}>Transportation</button>
+						  <button type="submit" className="btn btn-priority" onClick={() => {this.onChangeCategory('Other')}}>Other</button>
 					  </ul>
 					</div>
 				  </nav>
