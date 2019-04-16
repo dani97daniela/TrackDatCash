@@ -345,7 +345,7 @@ class TodosList extends Component {
             year: e.target.value
         });
         
-		onSubmit();
+		this.onSubmit();
     }
 	
 	onChangeBudget(e) {
