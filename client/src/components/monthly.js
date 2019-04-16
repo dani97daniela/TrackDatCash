@@ -449,14 +449,19 @@ class TodosList extends Component {
 					["Dec", this.state.Dec]
 				]} />	
 			
-			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
-			<input  
-				type="text"
-				placeholder={this.state.budget}
-				value={this.state.budget}
-				onChange={this.onChangeBudget}
-			/>
-			</label></center>
+			
+			<form onSubmit={this.onSubmitBudget}>
+				<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
+					<input  
+						type="text"
+						placeholder={this.state.budget}
+						className="form-control"
+						value={this.state.budget}
+						onChange={this.onChangeBudget}
+					/>
+					<input type="submit" value="Update" className="btn btn-info" />
+				</label></center>
+			</form>
 				
 			<center><h5>Budget: ${this.state.budget} </h5></center>
 			<center><h5>Balance: ${this.state.balance} </h5></center>
