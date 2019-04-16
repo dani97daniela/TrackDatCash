@@ -463,7 +463,7 @@ class TodosList extends Component {
 				/>
 			</label></center>
 			  
-			<center><label>{"Budget for " + this.state.year + ", " + this.state.month": " + this.state.budget}
+			<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + this.state.budget}
 				<input  
 					type="text"
 					placeholder={this.state.budget}
