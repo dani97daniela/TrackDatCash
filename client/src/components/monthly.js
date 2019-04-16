@@ -432,9 +432,10 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Monthly Lists</center></h3>
+				<h3><center>Monthly View</center></h3>
 				
 			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
+			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
 			  
 			  <ColumnChart data={[
 					["Jan", this.state.Jan], 
@@ -451,33 +452,30 @@ class TodosList extends Component {
 					["Dec", this.state.Dec]
 				]} />	
 				
-			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
 			  <center><h5>Budget: ${this.state.budget} </h5></center>
 			  <center><h5>Balance: ${this.state.balance} </h5></center>
 			  
 			  <form onSubmit={this.onSubmit}>
 				<center><label>Current Year:
-					<input  type="text"
-					placeholder={this.state.year}
+					<input  
+						type="text"
+						placeholder={this.state.year}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeYear}
-						/>
+					/>
 				</label></center>
 				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
-			  <form onSubmit={this.onSubmitBudget}>
-				<center><label>Budget for {this.state.year}, {this.state.month}: {this.state.budget}
-					<input  type="text"
+			<center><label>"Budget for " + {this.state.year} + ", " + {this.state.month}": " + {this.state.budget}
+				<input  
+					type="text"
 					placeholder={this.state.budget}
-						className="form-control"
-						value={this.state.cat}
-						onChange={this.onChangeBudget}
-						/>
-				</label></center>
-				<center><input type="submit" value="Update" className="btn btn-info" /></center>
-			  </form>
+					value={this.state.budget}
+					onChange={this.onChangeBudget}
+				/>
+			</label></center>
 			  
 			  <div className = "divider"/>
 				<div className="container">
