@@ -60,10 +60,6 @@ class Register extends Component {
 		<center><div className = "body">
 			<center><h1><img src = {logo2} width = "400" height = "80" class = "rounded" alt = ""/></h1></center>
           
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below

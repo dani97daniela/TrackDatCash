@@ -430,10 +430,8 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>{this.state.month + " Expenses"}</center></h3>
-				
-			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
-			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
+			<h3><center>{this.state.month + " Expenses for " + this.state.year}</center></h3>
+			<center><h5>Expenses Total: ${this.state.total} </h5></center>
 			  
 			  <ColumnChart data={[
 					["Jan", this.state.Jan], 
