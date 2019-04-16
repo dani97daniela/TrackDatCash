@@ -35,7 +35,6 @@ const Expense = props => (
         <td>{props.item.description}</td>
         <td>{props.item.amount}</td>
 		<td>{props.item.category}</td>
-        <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
 		<td>{props.item.groupCode}</td>
@@ -217,7 +216,7 @@ class TodosList extends Component {
 				temp = response.data;
 				tempJul = sumBy(temp, 'amount');
                 this.setState({ 
-					May: tempMay
+					Jul: tempJul
 				});
             })
             .catch(function (error){
