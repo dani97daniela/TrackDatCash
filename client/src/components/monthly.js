@@ -461,7 +461,7 @@ class TodosList extends Component {
 						value={this.state.year}
 						onChange={this.onChangeYear}
 					/>
-					<input type="submit" value="Update" className="btn btn-info" /></center>
+					<input type="submit" value="Update" className="btn btn-info" />
 				</label></center>
 			  </form>
 	
