@@ -13,10 +13,15 @@ import logo from "../o-logo.png";
 
 
 const optionsCategory = [
-  { value: 'Food', label: 'Food' },
   { value: 'Bills', label: 'Bills' },
+  { value: 'Dining', label: 'Dining Out' },
+  { value: 'Education', label: 'Education' },
   { value: 'Entertainment', label: 'Entertainment' },
-  { value: 'Other', label: 'Other/Misc.' }
+  { value: 'Groceries', label: 'Groceries' },
+  { value: 'Health', label: 'Health' },
+  { value: 'Shopping', label: 'Shopping' },
+  { value: 'Transportation', label: 'Transportation' },
+  { value: 'Other', label: 'Other' }
 ];
 
 const optionsMonth = [
