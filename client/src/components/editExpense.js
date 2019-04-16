@@ -277,9 +277,9 @@ export default class EditExpense extends Component {
 
                     <br />
 
-                    <div style = "text-align: center">
+                    <div>
                        <center><input type="submit" value="Update Expense" className="btn btn-info" /></center>
-						
+					   <div className = "divider"/>
 						<center><button type="submit" class="btn btn-danger" onClick={() => {this.deleteExpense()}}>Delete</button></center>
                     </div>
                 </form>
