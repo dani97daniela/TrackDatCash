@@ -35,7 +35,6 @@ const Expense = props => (
         <td>{props.item.description}</td>
         <td>{props.item.amount}</td>
 		<td>{props.item.category}</td>
-        <td>{props.item.month}</td>
         <td>{props.item.day}</td>
         <td>{props.item.year}</td>
 		<td>{props.item.groupCode}</td>
@@ -217,7 +216,7 @@ class TodosList extends Component {
 				temp = response.data;
 				tempJul = sumBy(temp, 'amount');
                 this.setState({ 
-					May: tempMay
+					Jul: tempJul
 				});
             })
             .catch(function (error){
@@ -357,7 +356,9 @@ class TodosList extends Component {
     }
 	
 	onSubmitBudget(e) {
-		e.preventDefault();		
+		e.preventDefault();	
+
+		this.updateCharts();
 	}
 	
 	onSubmit(e) {	
@@ -429,7 +430,7 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Monthly View</center></h3>
+				<h3><center>{this.state.month + " Expenses"}</center></h3>
 				
 			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
 			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
@@ -514,9 +515,6 @@ class TodosList extends Component {
 							<th data-field="category" 
 								onClick={() => {this.onChangeSort('category')}
 								}>Category</th>
-                            <th data-field="month" 
-								onClick={() => {this.onChangeSort('month')}
-								}>Month</th>
                             <th data-field="day" 
 								onClick={() => {this.onChangeSort('day')}
 								}>Day</th>

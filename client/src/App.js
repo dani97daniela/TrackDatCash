@@ -16,7 +16,6 @@ import Categories from "./components/categories";
 import Monthly from "./components/monthly";
 import Group from "./components/groupPage";
 
-import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -57,7 +56,6 @@ class App extends Component {
 		<Router>
           <div className="App">
 			
-			<Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
