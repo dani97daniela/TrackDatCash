@@ -160,7 +160,7 @@ class TodosList extends Component {
 
     render() {
         return (
-            <div>
+            <div className= "App">
               <nav className="navbar navbar-expand-sm navbar-light navbar-custom sticky-top">
 					<img src={logo} width="400" height="80" alt=""/>
 					<div className="collpase navbar-collapse">
@@ -204,7 +204,7 @@ class TodosList extends Component {
 					["Other", this.state.other]]
 				} />
 			  
-			  <h5>Total: ${this.state.total} </h5>
+			  <center><h5>Total: ${this.state.total} </h5></center>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">
