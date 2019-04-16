@@ -430,10 +430,7 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>{this.state.month + " Expenses"}</center></h3>
-				
-			  <h4><center><div>{"Expenses for " + this.state.year}</div></center></h4>
-			  <center><h5>Expenses Total: ${this.state.total} </h5></center>
+			<h3><center>{"Expenses for " + this.state.year}</center></h3>
 			  
 			  <ColumnChart data={[
 					["Jan", this.state.Jan], 
@@ -501,6 +498,9 @@ class TodosList extends Component {
 					</div>
 				  </nav>
 				</div>
+				
+				<center><h5>Expenses Total: ${this.state.total} </h5></center>
+				
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 30 }} >
 				  
