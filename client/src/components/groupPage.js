@@ -160,22 +160,21 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Group Expenses</center></h3>
 				
-			  <center><div>{"Your group code is: " + this.state.userCode}</div></center>
-			  
+			  <div>{"Your group code is: " + this.state.userCode}</div>
 			  <form onSubmit={this.onSubmit}>
-				<center><label>GroupCode:
+				<label>GroupCode:
 					<input  type="text"
 					placeholder={this.state.userCode}
 						className="form-control"
 						value={this.state.cat}
 						onChange={this.onChangeGroupCode}
 						/>
-				</label></center>
-				<center><input type="submit" value="Update" className="btn btn-info" /></center>
+				</label>
+				<input type="submit" value="Update" className="btn btn-info" />
 			  </form>
-			  
+				
+				<h3><center>Group Expenses</center></h3>
 			  <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 20 }} >
