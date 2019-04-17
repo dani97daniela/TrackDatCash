@@ -64,10 +64,10 @@ expenseRoutes.route("/getAllExpenses").post(function(req, res) {
 });
 
 // Route to return all expenses for a specific category
-expenseRoutes.post("/category/:newCategory", (req, res, next) => {
+expenseRoutes.post("/category", (req, res, next) => {
   const usersId = req.body.id.toString();
+  const category = req.body.newCategory;
   const year = req.body.newYear;
-  const category = req.params.newCategory;
   Expense.find({userId: usersId, category: category, year: year}, function(err, expenses) {
 	console.log(expenses);
 	if (err) {
