@@ -431,18 +431,9 @@ class TodosList extends Component {
 				</nav>
 				
 			<form onSubmit={this.onSubmit}>
-				<label>Current Year:
-					<input  
-						type="text"
-						placeholder={this.state.year}
-						className="form-control"
-						value={this.state.year}
-						onChange={this.onChangeYear}
-					/><input type="submit" value="Update" className="btn btn-info" />
-				</label>
+				<center><label>Current Year:<input type="text" placeholder={this.state.year} className="form-control" value={this.state.year) onChange={this.onChangeYear}/><input type="submit" value="Update" className="btn btn-info" /></label></center>
 			</form>
-			  
-			<h3><center>{"Expenses for " + this.state.year}</center></h3>
+			  <h3><center>{"Expenses for " + this.state.year}</center></h3>
 			  
 			  <ColumnChart data={[
 					["Jan", this.state.Jan], 
@@ -461,15 +452,7 @@ class TodosList extends Component {
 			
 			
 			<form onSubmit={this.onSubmitBudget}>
-				<label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
-					<input  
-						type="text"
-						placeholder={this.state.budget}
-						className="form-control"
-						value={this.state.budget}
-						onChange={this.onChangeBudget}
-					/><input type="submit" value="Update" className="btn btn-info" />
-				</label>
+				<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}<input type="text" placeholder={this.state.budget} className="form-control" value={this.state.budget} onChange={this.onChangeBudget}/><input type="submit" value="Update" className="btn btn-info" /></label></center>
 			</form>
 				
 			<center><h5>Budget: ${this.state.budget} </h5></center>

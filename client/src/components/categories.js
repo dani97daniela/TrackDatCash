@@ -338,7 +338,7 @@ class TodosList extends Component {
 					<button
 					style={{
 					width: "150px",
-					borderRadius: "3px",
+					borderRadius: "2px",
 					letterSpacing: "1.5px",
 					marginTop: "1rem"
 					}}
@@ -350,16 +350,7 @@ class TodosList extends Component {
 				</nav>
 			  
 			  <form onSubmit={this.onSubmit}>
-				<label>Current Year:
-					<input  
-						type="text"
-						placeholder={this.state.year}
-						className="form-control"
-						value={this.state.year}
-						onChange={this.onChangeYear}
-					/>
-					<input type="submit" value="Update" className="btn btn-info" />
-				</label>
+				<label>Current Year:<input type="text" placeholder={this.state.year} className="form-control" value={this.state.year} onChange={this.onChangeYear} /><input type="submit" value="Update" className="btn btn-info" /></label>
 			</form>
 			  
 			  <h3><center>{"Expenses Breakdown for " + this.state.year}</center></h3>

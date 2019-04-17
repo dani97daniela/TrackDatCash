@@ -101,7 +101,7 @@ export default class EditExpense extends Component {
 		onLogoutClick = e => {
 		e.preventDefault();
 		this.props.logoutUser();
-		};
+	};
     }
 
     componentDidMount() {
