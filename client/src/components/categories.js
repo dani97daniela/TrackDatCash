@@ -246,8 +246,9 @@ class TodosList extends Component {
 	
 	onChangeCategory(category) {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
-        axios.post('expenses/category/'+category, {
+        axios.post('expenses/category', {
 			id: idOfUser,
+			newCategory: category,
 			newYear: this.state.year
 		})
             .then(response => {
