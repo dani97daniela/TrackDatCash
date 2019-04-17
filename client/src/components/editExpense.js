@@ -98,10 +98,7 @@ export default class EditExpense extends Component {
             year: '',
             groupCode: ''
         }
-		onLogoutClick = e => {
-		e.preventDefault();
-		this.props.logoutUser();
-	};
+		
     }
 
     componentDidMount() {
