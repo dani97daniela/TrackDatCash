@@ -161,9 +161,8 @@ class TodosList extends Component {
 				</button>
 				</nav>
 				
-			  <div>{"Your group code is: " + this.state.userCode}</div>
 			  <form onSubmit={this.onSubmit}>
-				<label>GroupCode:
+				<label>Current Group Code:
 					<input  type="text"
 					placeholder={this.state.userCode}
 						className="form-control"
@@ -173,6 +172,7 @@ class TodosList extends Component {
 				</label>
 				<input type="submit" value="Update" className="btn btn-info" />
 			  </form>
+			  <div>{"Your account's group code is: " + this.state.userCode}</div>
 				
 				<h3><center>Group Expenses</center></h3>
 			  <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
