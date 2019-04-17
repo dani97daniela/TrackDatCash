@@ -49,6 +49,7 @@ class TodosList extends Component {
 		this.onChangeYear = this.onChangeYear.bind(this);
 		this.onChangeCategory = this.onChangeCategory.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
+		this.updateChart = this.updateChart.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		
         this.state = {
@@ -82,20 +83,38 @@ class TodosList extends Component {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
-				tempBills = sum;
                 this.setState({ 
 					expensesArray: temp,
-					bills: tempBills,
 					total: sum
 				});
             })
             .catch(function (error){
                 console.log(error);
             })
-		
+			
+		this.updateChart();
+    }
+	
+	updateChart(){
+		axios.post('/expenses/category/Bills', {
+				id: idOfUser,
+				newYear: this.state.year
+			})
+            .then(response => {
+				temp = response.data;
+				tempBills = sumBy(temp, 'amount');
+                this.setState({ 
+					bills: tempBills
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
 		axios.post('/expenses/category/Dining', {
-			id: idOfUser
-		})
+				id: idOfUser,
+				newYear: this.state.year
+			})
             .then(response => {
 				temp = response.data;
 				tempDining = sumBy(temp, 'amount');
@@ -108,7 +127,8 @@ class TodosList extends Component {
             })
 			
 		axios.post('/expenses/category/Education', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -122,7 +142,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Entertainment', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -136,7 +157,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Groceries', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -150,7 +172,8 @@ class TodosList extends Component {
             })
 			
 		axios.post('/expenses/category/Health', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -164,7 +187,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Shopping', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -178,7 +202,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Transportation', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -192,7 +217,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Other', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -204,7 +230,7 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-    }
+	}
 	
 	onChangeCategory(category) {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
@@ -262,6 +288,8 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })	
+			
+		this.updateChart();
     }
 
     listOfExpenses() {
