@@ -46,11 +46,15 @@ class TodosList extends Component {
     constructor(props) {
         super(props);
 		
+		this.onChangeYear = this.onChangeYear.bind(this);
 		this.onChangeCategory = this.onChangeCategory.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
+		this.updateChart = this.updateChart.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		
         this.state = {
 			expensesArray: [],
+			year: 2019,
 			bills: 0,
 			dining: 0,
 			education: 0,
@@ -72,26 +76,46 @@ class TodosList extends Component {
 	componentDidMount() {		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
         axios.post('/expenses/category/Bills', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
 				temp = sortBy(temp, ['description', 'amount']);
 				sum = sumBy(temp, 'amount');
-				tempBills = sum;
                 this.setState({ 
 					expensesArray: temp,
-					bills: tempBills,
 					total: sum
 				});
             })
             .catch(function (error){
                 console.log(error);
             })
-		
+			
+		this.updateChart();
+    }
+	
+	updateChart(){
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+		axios.post('/expenses/category/Bills', {
+				id: idOfUser,
+				newYear: this.state.year
+			})
+            .then(response => {
+				temp = response.data;
+				tempBills = sumBy(temp, 'amount');
+                this.setState({ 
+					bills: tempBills
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+			
 		axios.post('/expenses/category/Dining', {
-			id: idOfUser
-		})
+				id: idOfUser,
+				newYear: this.state.year
+			})
             .then(response => {
 				temp = response.data;
 				tempDining = sumBy(temp, 'amount');
@@ -104,7 +128,8 @@ class TodosList extends Component {
             })
 			
 		axios.post('/expenses/category/Education', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -118,7 +143,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Entertainment', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -132,7 +158,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Groceries', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -146,7 +173,8 @@ class TodosList extends Component {
             })
 			
 		axios.post('/expenses/category/Health', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -160,7 +188,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Shopping', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -174,7 +203,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Transportation', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -188,7 +218,8 @@ class TodosList extends Component {
             })
 		
 		axios.post('/expenses/category/Other', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -200,12 +231,13 @@ class TodosList extends Component {
             .catch(function (error){
                 console.log(error);
             })
-    }
+	}
 	
 	onChangeCategory(category) {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
         axios.post('expenses/category/'+category, {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -229,6 +261,36 @@ class TodosList extends Component {
 				expensesArray: temp,
 				total: sum
 			});
+    }
+	
+	onChangeYear(e) {
+		this.setState({
+            year: e.target.value
+        });        
+    }
+	
+	onSubmit(e) {	
+		e.preventDefault();
+		
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+		axios.post('/expenses/category/Bills', {
+			id: idOfUser,
+			newYear: this.state.year
+			})
+            .then(response => {
+				temp = response.data;
+				temp = sortBy(temp, ['description', 'amount']);
+				sum = sumBy(temp, 'amount');
+                this.setState({ 
+					expensesArray: temp,
+					total: sum
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })	
+			
+		this.updateChart();
     }
 
     listOfExpenses() {
@@ -274,8 +336,21 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Category List</center></h3>
-		
+			  
+			  <form onSubmit={this.onSubmit}>
+				<label>Current Year:
+					<input  
+						type="text"
+						placeholder={this.state.year}
+						className="form-control"
+						value={this.state.year}
+						onChange={this.onChangeYear}
+					/>
+					<input type="submit" value="Update" className="btn btn-info" />
+				</label>
+			</form>
+			  
+			  <h3><center>{"Expenses Breakdown for " + this.state.year}</center></h3>
 			  <PieChart data={[
 					["Bills", this.state.bills], 
 					["Dining Out", this.state.dining], 
@@ -288,7 +363,7 @@ class TodosList extends Component {
 					["Other", this.state.other]]
 				} colors ={["#f7adce", "#7fd3f7","#c49bdf","#ffde17","#84f2b3","#ffbdbd","#6fc0ab","#ff8b94", "#6eb5ff"]}/>
 	
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			  <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">
@@ -307,7 +382,7 @@ class TodosList extends Component {
 				  </nav>
 				</div>
                 <table className="table table-striped table-bordered" 
-				  style={{ marginTop: 30 }} >
+				  style={{ marginTop: 20 }} >
 				  
                     <thead className="thead-dark">
                         <tr>
