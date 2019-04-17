@@ -441,7 +441,7 @@ class TodosList extends Component {
 					/>
 					<input type="submit" value="Update" className="btn btn-info" />
 				</label>
-			  </form>
+			</form>
 			  
 			<h3><center>{"Expenses for " + this.state.year}</center></h3>
 			  

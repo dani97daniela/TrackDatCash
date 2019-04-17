@@ -46,11 +46,14 @@ class TodosList extends Component {
     constructor(props) {
         super(props);
 		
+		this.onChangeYear = this.onChangeYear.bind(this);
 		this.onChangeCategory = this.onChangeCategory.bind(this);
 		this.onChangeSort = this.onChangeSort.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		
         this.state = {
 			expensesArray: [],
+			year: 2019,
 			bills: 0,
 			dining: 0,
 			education: 0,
@@ -72,7 +75,8 @@ class TodosList extends Component {
 	componentDidMount() {		
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
         axios.post('/expenses/category/Bills', {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -205,7 +209,8 @@ class TodosList extends Component {
 	onChangeCategory(category) {
 		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
         axios.post('expenses/category/'+category, {
-			id: idOfUser
+			id: idOfUser,
+			newYear: this.state.year
 		})
             .then(response => {
 				temp = response.data;
@@ -229,6 +234,34 @@ class TodosList extends Component {
 				expensesArray: temp,
 				total: sum
 			});
+    }
+	
+	onChangeYear(e) {
+		this.setState({
+            year: e.target.value
+        });        
+    }
+	
+	onSubmit(e) {	
+		e.preventDefault();
+		
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
+		axios.post('/expenses/category/Bills', {
+			id: idOfUser,
+			newYear: this.state.year
+			})
+            .then(response => {
+				temp = response.data;
+				temp = sortBy(temp, ['description', 'amount']);
+				sum = sumBy(temp, 'amount');
+                this.setState({ 
+					expensesArray: temp,
+					total: sum
+				});
+            })
+            .catch(function (error){
+                console.log(error);
+            })	
     }
 
     listOfExpenses() {
@@ -274,8 +307,21 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
-				<h3><center>Category List</center></h3>
-		
+			  
+			  <form onSubmit={this.onSubmit}>
+				<label>Current Year:
+					<input  
+						type="text"
+						placeholder={this.state.year}
+						className="form-control"
+						value={this.state.year}
+						onChange={this.onChangeYear}
+					/>
+					<input type="submit" value="Update" className="btn btn-info" />
+				</label>
+			</form>
+			  
+			  <h3><center>{"Expenses Breakdown for " + this.state.year}</center></h3>
 			  <PieChart data={[
 					["Bills", this.state.bills], 
 					["Dining Out", this.state.dining], 
