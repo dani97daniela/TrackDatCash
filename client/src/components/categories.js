@@ -96,6 +96,7 @@ class TodosList extends Component {
     }
 	
 	updateChart(){
+		const idOfUser = jwt_decode(localStorage.getItem("jwtToken")).id;
 		axios.post('/expenses/category/Bills', {
 				id: idOfUser,
 				newYear: this.state.year
