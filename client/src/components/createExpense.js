@@ -148,7 +148,7 @@ export default class CreateExpense extends Component {
      
         const newExpense = {
 			userId: idOfUser,
-            description: this.state.description,
+            description: this.state.description.toUpperCase(),
             amount: parseFloat(this.state.amount).toFixed( 2 ),
 			category: this.state.category,
             month: this.state.month,
