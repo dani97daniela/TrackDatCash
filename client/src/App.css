@@ -19,7 +19,7 @@
 }
 .divider{
 	width: 5px;
-	height: auto;
+	padding: 5px;
 	display: inline-block;
 }
 .AppRegister{
