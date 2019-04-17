@@ -163,7 +163,7 @@ export default class EditExpense extends Component {
     onSubmit(e) {
         e.preventDefault();
         const obj = {
-            description: this.state.description.toUpperCase(),
+            description: this.state.description.charAt(0).toUpperCase() + this.state.description.slice(1),
             amount: parseFloat(this.state.amount).toFixed( 2 ),
 			category: this.state.category,
             month: this.state.month,
