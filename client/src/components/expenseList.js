@@ -127,7 +127,7 @@ class TodosList extends Component {
 				
                 <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
                 <table className="table table-striped table-bordered" 
-				  style={{ marginTop: 30 }} >
+				  style={{ marginTop: 20 }} >
 				  
                     <thead className="thead-dark">
                         <tr>

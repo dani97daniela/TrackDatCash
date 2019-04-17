@@ -501,7 +501,7 @@ class TodosList extends Component {
 				</div>
 				
                 <table className="table table-striped table-bordered" 
-				  style={{ marginTop: 10 }} >
+				  style={{ marginTop: 20 }} >
 				  
                     <thead className="thead-dark">
                         <tr>

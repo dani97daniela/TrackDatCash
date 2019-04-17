@@ -307,7 +307,7 @@ class TodosList extends Component {
 				  </nav>
 				</div>
                 <table className="table table-striped table-bordered" 
-				  style={{ marginTop: 30 }} >
+				  style={{ marginTop: 20 }} >
 				  
                     <thead className="thead-dark">
                         <tr>
