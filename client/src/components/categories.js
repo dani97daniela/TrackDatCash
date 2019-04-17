@@ -288,7 +288,7 @@ class TodosList extends Component {
 					["Other", this.state.other]]
 				} colors ={["#f7adce", "#7fd3f7","#c49bdf","#ffde17","#84f2b3","#ffbdbd","#6fc0ab","#ff8b94", "#6eb5ff"]}/>
 	
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			  <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
 					<div className="collpase navbar-collapse">

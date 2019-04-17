@@ -347,18 +347,17 @@ class TodosList extends Component {
 	
 	onChangeBudget(e) {
 		this.setState({
-            budget: e.target.value
-		},() =>{
-			this.setState({
-			  balance: this.state.budget - this.state.total
-			});
+            budget: e.target.value,
+			balance: "-"
         });
     }
 	
 	onSubmitBudget(e) {
 		e.preventDefault();	
 
-		this.updateCharts();
+		this.setState({
+			  balance: this.state.budget - this.state.total
+		});
 	}
 	
 	onSubmit(e) {	
@@ -430,6 +429,20 @@ class TodosList extends Component {
 					Logout
 				</button>
 				</nav>
+				
+			<form onSubmit={this.onSubmit}>
+				<label>Current Year:
+					<input  
+						type="text"
+						placeholder={this.state.year}
+						className="form-control"
+						value={this.state.year}
+						onChange={this.onChangeYear}
+					/>
+					<input type="submit" value="Update" className="btn btn-info" />
+				</label>
+			  </form>
+			  
 			<h3><center>{"Expenses for " + this.state.year}</center></h3>
 			  
 			  <ColumnChart data={[
@@ -449,7 +462,7 @@ class TodosList extends Component {
 			
 			
 			<form onSubmit={this.onSubmitBudget}>
-				<center><label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
+				<label>{"Budget for " + this.state.year + ", " + this.state.month + ": " + " "}
 					<input  
 						type="text"
 						placeholder={this.state.budget}
@@ -458,25 +471,13 @@ class TodosList extends Component {
 						onChange={this.onChangeBudget}
 					/>
 					<input type="submit" value="Update" className="btn btn-info" />
-				</label></center>
+				</label>
 			</form>
 				
 			<center><h5>Budget: ${this.state.budget} </h5></center>
 			<center><h5>Balance: ${this.state.balance} </h5></center>
-			
-			<form onSubmit={this.onSubmit}>
-				<center><label>Current Year:
-					<input  
-						type="text"
-						placeholder={this.state.year}
-						className="form-control"
-						value={this.state.year}
-						onChange={this.onChangeYear}
-					/>
-					<input type="submit" value="Update" className="btn btn-info" />
-				</label></center>
-			  </form>
 			  
+			  <center><h5>Expenses Total: ${this.state.total.toFixed(2)} </h5></center>
 			  <div className = "divider"/>
 				<div className="container">
 				  <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -499,10 +500,8 @@ class TodosList extends Component {
 				  </nav>
 				</div>
 				
-				<center><h5>Expenses Total: ${this.state.total} </h5></center>
-				
                 <table className="table table-striped table-bordered" 
-				  style={{ marginTop: 30 }} >
+				  style={{ marginTop: 10 }} >
 				  
                     <thead className="thead-dark">
                         <tr>

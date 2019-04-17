@@ -125,7 +125,7 @@ class TodosList extends Component {
 				</nav>
 				 <h3><center>All Expenses</center></h3>
 				
-                <center><h5>Total: ${this.state.total} </h5></center>
+                <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 30 }} >
 				  

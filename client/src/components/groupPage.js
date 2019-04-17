@@ -176,7 +176,7 @@ class TodosList extends Component {
 				<center><input type="submit" value="Update" className="btn btn-info" /></center>
 			  </form>
 			  
-			  <center><h5>Total: ${this.state.total} </h5></center>
+			  <center><h5>Total: ${this.state.total.toFixed(2)} </h5></center>
                 <table className="table table-striped table-bordered" 
 				  style={{ marginTop: 30 }} >
 				  
