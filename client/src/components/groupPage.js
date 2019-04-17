@@ -162,14 +162,7 @@ class TodosList extends Component {
 				</nav>
 				
 			  <form onSubmit={this.onSubmit}>
-				<label>Current Group Code:
-					<input  type="text"
-					placeholder={this.state.userCode}
-						className="form-control"
-						value={this.state.cat}
-						onChange={this.onChangeGroupCode}
-						/>
-				</label>
+				<center><label>Current Group Code:<input  type="text" placeholder={this.state.userCode} className="form-control" value={this.state.cat} onChange={this.onChangeGroupCode}/></label>
 				<input type="submit" value="Update" className="btn btn-info" />
 			  </form>
 			  <div>{"Your account's group code is: " + this.state.userCode}</div>

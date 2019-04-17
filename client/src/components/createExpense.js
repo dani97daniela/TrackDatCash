@@ -98,6 +98,10 @@ export default class CreateExpense extends Component {
 			groupCode: ''
         }
     }
+	onLogoutClick = e => {
+		e.preventDefault();
+		this.props.logoutUser();
+	};
 
     onChangeDescription(e) {
         this.setState({
