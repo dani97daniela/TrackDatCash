@@ -438,8 +438,7 @@ class TodosList extends Component {
 						className="form-control"
 						value={this.state.year}
 						onChange={this.onChangeYear}
-					/>
-					<input type="submit" value="Update" className="btn btn-info" />
+					/><input type="submit" value="Update" className="btn btn-info" />
 				</label>
 			</form>
 			  
@@ -469,8 +468,7 @@ class TodosList extends Component {
 						className="form-control"
 						value={this.state.budget}
 						onChange={this.onChangeBudget}
-					/>
-					<input type="submit" value="Update" className="btn btn-info" />
+					/><input type="submit" value="Update" className="btn btn-info" />
 				</label>
 			</form>
 				

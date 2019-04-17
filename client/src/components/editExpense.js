@@ -98,6 +98,10 @@ export default class EditExpense extends Component {
             year: '',
             groupCode: ''
         }
+		onLogoutClick = e => {
+		e.preventDefault();
+		this.props.logoutUser();
+		};
     }
 
     componentDidMount() {
@@ -213,6 +217,18 @@ export default class EditExpense extends Component {
 						</li>
 					  </ul>
 					</div>
+					<button
+					style={{
+					width: "150px",
+					borderRadius: "3px",
+					letterSpacing: "1.5px",
+					marginTop: "1rem"
+					}}
+					onClick={this.onLogoutClick}
+					className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+					>
+					Logout
+				</button>
 				</nav>
                 <h3 align="center">Update Expense</h3>
                 <form onSubmit={this.onSubmit}>
